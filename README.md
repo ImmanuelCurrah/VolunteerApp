@@ -1,5 +1,11 @@
 # VolunteerApp
 
+## Team Rockit
+
+![teamLogo](pictures/astroscropped.jpg)
+
+#
+
 ## Overview
 
 #
