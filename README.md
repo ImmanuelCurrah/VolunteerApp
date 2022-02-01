@@ -18,27 +18,32 @@ Allow businesses to post needs for volunteers. And allow users to sign up for th
 
 ```
 
-new User schema {
-	userName: “”,
-	Email: “”,
-	Password: “”,
-	Confirm password: “”,
-	isBusiness: true or false,
-	Businesname: “”,
-	Posts: [postSchema]
-}
+const userSchema = mongoose.Schema(
+  {
+    userName: { type: String, required: true, trim: true },
+    firstName: { type: String, required: true, trim: true },
+    lastName: { type: String, required: true, trim: true },
+    email: { type: String, required: true, trim: true },
+    password: { type: String, required: true, trim: true },
+    confirmPassword: { type: String, required: true, trim: true },
+    isBusiness: false/true,
+    posts: [postSchema],
+  },
+  { timestamps: true }
+);
 
-New post schema {
-	title/event: “”,
-	body/content: “”,
-	numberNeeded: number,
-	Comment: [comment schema]
-}
+const postSchema = mongoose.Schema(	{
+  title/event: { type: String, required: true, trim: true },
+	body/content: { type: String, required: true, trim: true },
+	numberNeeded: { type: Number, required: true, trim: true },
+	Comments: [commentSchema]
+}) {
 
-new Comment schema {
-	Likes: number,
-	Body: “”
-}
+
+const commentSchema = mongoose.Schema({
+  content: { type: String, required: true, trim: true },
+  likes: { type: Number, required: true, trim: true },
+})
 ```
 
 #
