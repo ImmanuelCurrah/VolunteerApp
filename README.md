@@ -37,7 +37,7 @@ const postSchema = mongoose.Schema(	{
 	body/content: { type: String, required: true, trim: true },
 	numberNeeded: { type: Number, required: true, trim: true },
 	Comments: [commentSchema]
-}) {
+})
 
 
 const commentSchema = mongoose.Schema({
