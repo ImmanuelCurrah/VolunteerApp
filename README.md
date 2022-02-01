@@ -44,13 +44,25 @@ const commentSchema = mongoose.Schema({
   content: { type: String, required: true, trim: true },
   likes: { type: Number, required: true, trim: true },
 })
+
+const contactSchema = mongoose.Schema({
+  name: { type: String, required: true, trim: true },
+  email: { type: String, required: true, trim: true },
+  message: { type: String, required: true, trim: true }
+})
+
 ```
 
 #
 
 ## Whimsical
 
+Components Architecture
 ![image](pictures/Volunteer-App-Architecture.png)
+
+Design
+
+Click [here](https://whimsical.com/FbrucgXMi7o6Qhh7sCikbL) to see our design concept for our app!
 
 #
 
