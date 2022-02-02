@@ -3,6 +3,7 @@ import {
   createBusinessPostHandler,
   findCurrentBusinessByNameHandler,
 } from "../../../../services/apiConfigBusiness";
+import { Row, Form } from "react-bootstrap";
 
 export default function BusinessPostForm() {
   const [postData, setPostData] = useState({
@@ -40,39 +41,41 @@ export default function BusinessPostForm() {
     }
   };
   return (
-    <div>
-      <form>
-        <label>Title of Event</label>
-        <br />
-        <input
-          type="text"
-          id="title"
-          value={postData.title}
-          placeholder="Name your event..."
-          onChange={setPostDataHandler}
-        />
-        <br />
-        <label>Volunteers Needed</label>
-        <br />
-        <input
-          type="number"
-          id="numberOfVolunteers"
-          value={postData.numberOfVolunteers}
-          placeholder="How many volunteers..."
-          onChange={setPostDataHandler}
-        />
-        <br />
-        <label>Event Details</label>
-        <br />
-        <input
-          type="text"
-          id="eventDetails"
-          value={postData.eventDetails}
-          placeholder="Description..."
-          onChange={setPostDataHandler}
-        />
-        <button>Submit</button>
-      </form>
+    <div className="login-form">
+      <Row>
+        <Form onSubmit={submitHandler}>
+          <Form.Label>Title of Event</Form.Label>
+          <br />
+          <Form.Control
+            type="text"
+            id="title"
+            value={postData.title}
+            placeholder="Name your event..."
+            onChange={setPostDataHandler}
+          />
+          <br />
+          <Form.Label>Volunteers Needed</Form.Label>
+          <br />
+          <Form.Control
+            type="number"
+            id="numberOfVolunteers"
+            value={postData.numberOfVolunteers}
+            placeholder="How many volunteers..."
+            onChange={setPostDataHandler}
+          />
+          <br />
+          <Form.Label>Event Details</Form.Label>
+          <br />
+          <Form.Control
+            type="text"
+            id="eventDetails"
+            value={postData.eventDetails}
+            placeholder="Description..."
+            onChange={setPostDataHandler}
+          />
+          <button className="login-btn">Post Event</button>
+        </Form>
+      </Row>
     </div>
   );
 }
