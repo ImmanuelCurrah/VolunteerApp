@@ -27,7 +27,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="user-login-form">
+    <div className="login-form">
       <Row>
         <Form onSubmit={submitHandler}>
           <Form.Label>Email</Form.Label>
