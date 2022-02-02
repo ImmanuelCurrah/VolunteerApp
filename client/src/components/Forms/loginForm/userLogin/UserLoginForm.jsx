@@ -5,7 +5,7 @@ export default function UserLoginForm(props) {
   const { email, password } = props.userInput;
 
   return (
-    <div className="user-login-form">
+    <div className="login-form">
       <Row>
         <Form onSubmit={props.handleLoginSubmit}>
           <Form.Label>Email</Form.Label>
@@ -20,7 +20,7 @@ export default function UserLoginForm(props) {
           />
           <br />
 
-          <Form.Label>Type</Form.Label>
+          <Form.Label>Password</Form.Label>
           <Form.Control
             required
             id="password"

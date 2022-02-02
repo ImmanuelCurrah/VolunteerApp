@@ -7,6 +7,7 @@ import SignUpBusiness from './screens/signUpPage/SignUpBusiness';
 import SignUpUser from './screens/signUpPage/SignUpUser';
 import Contact from './screens/ContactPage/Contact';
 import UserLogin from './screens/LoginPages/UserLogin/UserLogin';
+import BusinessLogin from './screens/LoginPages/BusinessLogin/BusinessLogin';
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login-user" element={<UserLogin />} />
-        <Route path="/login-business" element={<h2>login business page</h2>} />
+        <Route path="/login-business" element={<BusinessLogin />} />
         <Route path="/sign-up-user" element={<SignUpUser />} />
         <Route path="/sign-up-business" element={<SignUpBusiness />} />
         <Route path="/contact-us" element={<Contact />} />
