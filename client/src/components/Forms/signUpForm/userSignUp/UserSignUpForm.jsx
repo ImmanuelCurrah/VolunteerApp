@@ -2,9 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signUpUserHandler } from "../../../../services/apiConfigUser";
 
-
 export default function UserSignUpForm() {
-
   const [newUser, setNewUser] = useState({
     userName: "",
     firstName: "",
@@ -18,13 +16,12 @@ export default function UserSignUpForm() {
   const [valid, setValid] = useState(false);
   const navigation = useNavigate();
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     await signUpUserHandler(newUser);
     console.log(newUser);
     navigation("/login-user");
-  }
+  };
 
   const handleInput = (e) => {
     const { id, value } = e.target;
@@ -54,61 +51,61 @@ export default function UserSignUpForm() {
   };
 
   return (
-      <div className="user-signup-container">
-        <form className="user-signup-form" onSubmit={handleSubmit}>
-          <h2>Sign Up!</h2>
-          <h4>{validationMessage}</h4>
-          <br />
-          <label>Username: </label>
-          <input
-            type="text"
-            placeholder="Create a Username"
-            value={newUser.userName}
-            onChange={handleInput}
-          />
-          <br/>
-          <label>First Name: </label>
-          <input
-            type="text"
-            placeholder="First Name"
-            value={newUser.firstName}
-            onChange={handleInput}
-          />
-          <br/>
-          <label>Last Name: </label>
-          <input
-            type="text"
-            placeholder="Last Name"
-            value={newUser.lastName}
-            onChange={handleInput}
-          />
-          <br/>
-          <label>Email: </label>
-          <input
-            type="text"
-            placeholder="Email"
-            value={newUser.email}
-            onChange={handleInput}
-          />
-          <br/>
-          <label>Password: </label>
-          <input
-            type="text"
-            placeholder="Create a password"
-            value={newUser.password}
-            onChange={handleInput}
-          />
-          <br/>
-          <label>Confirm Password: </label>
-          <input
-            type="text"
-            placeholder="Confrim password"
-            value={newUser.confirmPassword}
-            onChange={handleInput}
-          />
-          <br />
-          {/* signup button? */}
-        </form>
-      </div>
-  )
+    <div className="user-signup-container">
+      <form className="user-signup-form" onSubmit={handleSubmit}>
+        <h2>Sign Up!</h2>
+        <h4>{validationMessage}</h4>
+        <br />
+        <label>Username: </label>
+        <input
+          type="text"
+          placeholder="Create a Username"
+          value={newUser.userName}
+          onChange={handleInput}
+        />
+        <br />
+        <label>First Name: </label>
+        <input
+          type="text"
+          placeholder="First Name"
+          value={newUser.firstName}
+          onChange={handleInput}
+        />
+        <br />
+        <label>Last Name: </label>
+        <input
+          type="text"
+          placeholder="Last Name"
+          value={newUser.lastName}
+          onChange={handleInput}
+        />
+        <br />
+        <label>Email: </label>
+        <input
+          type="text"
+          placeholder="Email"
+          value={newUser.email}
+          onChange={handleInput}
+        />
+        <br />
+        <label>Password: </label>
+        <input
+          type="text"
+          placeholder="Create a password"
+          value={newUser.password}
+          onChange={handleInput}
+        />
+        <br />
+        <label>Confirm Password: </label>
+        <input
+          type="text"
+          placeholder="Confrim password"
+          value={newUser.confirmPassword}
+          onChange={handleInput}
+        />
+        <br />
+        {/* signup button? */}
+      </form>
+    </div>
+  );
 }
