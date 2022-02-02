@@ -19,19 +19,20 @@ export default function PostLoginNav() {
           <ReactBootStrap.Navbar.Collapse id="responsive-navbar-nav">
             <ReactBootStrap.Nav className="me-auto"></ReactBootStrap.Nav>
             <ReactBootStrap.Nav>
-              <ReactBootStrap.Nav.Link href="#">
+              <ReactBootStrap.Nav.Link href="/account">
                 Account Page
               </ReactBootStrap.Nav.Link>
-
-              <ReactBootStrap.Nav.Link eventKey={2} href="#">
-                Create Post
+              <ReactBootStrap.Nav.Link
+                eventKey={2}
+                href="/create-post-business"
+              >
+                Post Business Ad
               </ReactBootStrap.Nav.Link>
-
-              <ReactBootStrap.Nav.Link href="#">
+              <ReactBootStrap.Nav.Link href="/about-us">
                 About Us
               </ReactBootStrap.Nav.Link>
-              <ReactBootStrap.Nav.Link href="#">
-                Contact
+              <ReactBootStrap.Nav.Link href="/contact-us">
+                Contact Us
               </ReactBootStrap.Nav.Link>
             </ReactBootStrap.Nav>
           </ReactBootStrap.Navbar.Collapse>

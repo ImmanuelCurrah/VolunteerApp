@@ -18,10 +18,10 @@ export default function LoginNavBar() {
           <ReactBootStrap.Navbar.Collapse id="basic-navbar-nav">
             <ReactBootStrap.Nav className="me-auto">
               <ReactBootStrap.NavDropdown title="Login" id="basic-nav-dropdown">
-                <ReactBootStrap.NavDropdown.Item href="#action/3.1">
+                <ReactBootStrap.NavDropdown.Item href="/login-user">
                   Volunteer Login
                 </ReactBootStrap.NavDropdown.Item>
-                <ReactBootStrap.NavDropdown.Item href="#action/3.2">
+                <ReactBootStrap.NavDropdown.Item href="/login-business">
                   Business Login
                 </ReactBootStrap.NavDropdown.Item>
               </ReactBootStrap.NavDropdown>
@@ -30,10 +30,10 @@ export default function LoginNavBar() {
                 title="Signup"
                 id="basic-nav-dropdown"
               >
-                <ReactBootStrap.NavDropdown.Item href="#action/3.1">
+                <ReactBootStrap.NavDropdown.Item href="/sign-up-user">
                   Volunteer Signup
                 </ReactBootStrap.NavDropdown.Item>
-                <ReactBootStrap.NavDropdown.Item href="#action/3.2">
+                <ReactBootStrap.NavDropdown.Item href="/login-business">
                   Business Signup
                 </ReactBootStrap.NavDropdown.Item>
               </ReactBootStrap.NavDropdown>
