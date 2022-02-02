@@ -1,0 +1,110 @@
+import { useEffect, useState } from "react";
+import { Layout } from "../../../Layout/Layout";
+import { useNavigate } from "react-router-dom";
+// sign up business handler from api config
+
+
+import React from 'react';
+
+export default function BusinessSignUpForm() {
+
+  const [newBusiness, setNewBusiness] = useState({
+    userName: "",
+    businessName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const [validationMessage, setValidationMessage] = useState("");
+  const [valid, setValid] = useState(false);
+  const navigation = useNavigate();
+
+  // handleSubmit function: signUpBusinessHandler?
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    // await signUpBusinessHandler(newBusiness);
+    console.log(newBusiness);
+    // navigation("/login"); //login business?
+  }
+
+  const handleInput = (e) => {
+    const { id, value } = e.target;
+    setNewBusiness((prevState) => ({
+      ...prevState,
+      [id]: value,
+    }));
+  };
+
+  useEffect(() => {
+    checkIfValid();
+  }, [newBusiness.password, newBusiness.confirmPassword]);
+
+  const checkIfValid = () => {
+    if (newBusiness.password === "" || newBusiness.confirmPassword === "") {
+      setValidationMessage("");
+      setValid(false);
+    } else if (newBusiness.password.length < 9) {
+      setValidationMessage("Short password! Must be at least 8 characters");
+    } else if (newBusiness.password !== newBusiness.confirmPassword) {
+      setValidationMessage("Passwords must much!");
+      setValid(false);
+    } else {
+      setValidationMessage("Password match!");
+      setValid(true);
+    }
+  };
+
+  return (
+    <Layout>
+      <div className="business-signup-container">
+        <form className="business-signup-form" onSubmit={handleSubmit}>
+          <h2>Sign up your business!</h2>
+          <h4>{validationMessage}</h4>
+          <br />
+          <label>Username: </label>
+          <input
+            type="text"
+            placeholder="Create a Username"
+            value={newBusiness.userName}
+            onChange={handleInput}
+          />
+          <br/>
+          <label>Business Name: </label>
+          <input
+            type="text"
+            placeholder="Business Name"
+            value={newBusiness.businessName}
+            onChange={handleInput}
+          />
+          <br/>
+          <label>Email: </label>
+          <input
+            type="text"
+            placeholder="Email"
+            value={newBusiness.email}
+            onChange={handleInput}
+          />
+          <br/>
+          <label>Password: </label>
+          <input
+            type="text"
+            placeholder="Create a password"
+            value={newBusiness.password}
+            onChange={handleInput}
+          />
+          <br/>
+          <label>Confirm Password: </label>
+          <input
+            type="text"
+            placeholder="Confrim password"
+            value={newBusiness.confirmPassword}
+            onChange={handleInput}
+          />
+          <br />
+          {/* signup button? */}
+        </form>
+      </div>
+    </Layout>
+  )
+}
