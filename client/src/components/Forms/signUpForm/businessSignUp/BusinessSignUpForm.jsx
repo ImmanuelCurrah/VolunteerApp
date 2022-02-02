@@ -54,7 +54,6 @@ export default function BusinessSignUpForm() {
   };
 
   return (
-    <Layout>
       <div className="business-signup-container">
         <form className="business-signup-form" onSubmit={handleSubmit}>
           <h2>Sign up your business!</h2>
@@ -103,6 +102,5 @@ export default function BusinessSignUpForm() {
           {/* signup button? */}
         </form>
       </div>
-    </Layout>
   )
 }

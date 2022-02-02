@@ -55,7 +55,6 @@ export default function UserSignUpForm() {
   };
 
   return (
-    <Layout>
       <div className="user-signup-container">
         <form className="user-signup-form" onSubmit={handleSubmit}>
           <h2>Sign Up!</h2>
@@ -112,6 +111,5 @@ export default function UserSignUpForm() {
           {/* signup button? */}
         </form>
       </div>
-    </Layout>
   )
 }
