@@ -33,6 +33,16 @@
   padding: 5px;
 }
 
+.link-div {
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.accordion {
+  width: 250px !important;
+}
+
 .accordion-body {
   background: #f8f9fa !important;
 }
@@ -57,11 +67,6 @@
   width: 400px;
   border: 5px solid #000;
   border-radius: 50%;
-}
-
-.link-div {
-  display: flex;
-  flex-direction: column;
 }
 
 /* Homepage featured */
@@ -129,8 +134,8 @@
   }
 
   .homepage-img img {
-    height: 150px;
-    width: 200px;
+    height: 175px;
+    width: 225px;
     border: 5px solid #000;
     border-radius: 50%;
   }
