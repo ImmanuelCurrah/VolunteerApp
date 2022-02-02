@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Layout } from "../../../Layout/Layout";
 import { useNavigate } from "react-router-dom";
-// sign up business handler from api config
+import { signUpBusinessHandler } from "../../../../services/apiConfigBusiness";
 
 
 export default function BusinessSignUpForm() {
@@ -21,7 +21,7 @@ export default function BusinessSignUpForm() {
   // handleSubmit function: signUpBusinessHandler?
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // await signUpBusinessHandler(newBusiness);
+    await signUpBusinessHandler(newBusiness);
     console.log(newBusiness);
     // navigation("/login"); //login business?
   }
