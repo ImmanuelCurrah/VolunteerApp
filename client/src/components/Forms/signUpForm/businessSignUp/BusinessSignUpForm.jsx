@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signUpBusinessHandler } from "../../../../services/apiConfigBusiness";
-
+import { Form, Row } from "react-bootstrap";
 
 export default function BusinessSignUpForm() {
 
@@ -53,13 +53,16 @@ export default function BusinessSignUpForm() {
   };
 
   return (
-      <div className="business-signup-container">
-        <form className="business-signup-form" onSubmit={handleSubmit}>
+    <div className="business-signup-container">
+      <Row>
+        <Form className="business-signup-form" onSubmit={handleSubmit}>
           <h2>Sign up your business!</h2>
           <h4>{validationMessage}</h4>
           <br />
-          <label>Username: </label>
-          <input
+          <Form.Label>Username: </Form.Label>
+          <Form.Control
+            required
+            autofocus
             type="text"
             id="userName"
             placeholder="Create a Username"
@@ -67,8 +70,9 @@ export default function BusinessSignUpForm() {
             onChange={handleInput}
           />
           <br/>
-          <label>Business Name: </label>
-          <input
+          <Form.Label>Business Name: </Form.Label>
+          <Form.Control
+            required
             type="text"
             id="businessName"
             placeholder="Business Name"
@@ -76,8 +80,9 @@ export default function BusinessSignUpForm() {
             onChange={handleInput}
           />
           <br/>
-          <label>Email: </label>
-          <input
+          <Form.Label>Email: </Form.Label>
+          <Form.Control
+            required
             type="text"
             id="email"
             placeholder="Email"
@@ -85,8 +90,9 @@ export default function BusinessSignUpForm() {
             onChange={handleInput}
           />
           <br/>
-          <label>Password: </label>
-          <input
+          <Form.Label>Password: </Form.Label>
+          <Form.Control
+            required
             type="text"
             id="password"
             placeholder="Create a password"
@@ -94,8 +100,9 @@ export default function BusinessSignUpForm() {
             onChange={handleInput}
           />
           <br/>
-          <label>Confirm Password: </label>
-          <input
+          <Form.Label>Confirm Password: </Form.Label>
+          <Form.Control
+            required
             type="text"
             id="confirmPassword"
             placeholder="Confrim password"
@@ -104,7 +111,8 @@ export default function BusinessSignUpForm() {
           />
           <br />
           {/* signup button? */}
-        </form>
-      </div>
+        </Form>
+      </Row>
+  </div>
   )
 }

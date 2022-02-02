@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signUpUserHandler } from "../../../../services/apiConfigUser";
+import { Form, Row } from "react-bootstrap";
 
 export default function UserSignUpForm() {
   const [newUser, setNewUser] = useState({
@@ -52,66 +53,75 @@ export default function UserSignUpForm() {
 
   return (
     <div className="user-signup-container">
-      <form className="user-signup-form" onSubmit={handleSubmit}>
-        <h2>Sign Up!</h2>
-        <h4>{validationMessage}</h4>
-        <br />
-        <label>Username: </label>
-        <input
-          type="text"
-          id="userName"
-          placeholder="Create a Username"
-          value={newUser.userName}
-          onChange={handleInput}
-        />
-        <br />
-        <label>First Name: </label>
-        <input
-          type="text"
-          id="firstName"
-          placeholder="First Name"
-          value={newUser.firstName}
-          onChange={handleInput}
-        />
-        <br />
-        <label>Last Name: </label>
-        <input
-          type="text"
-          id="lastName"
-          placeholder="Last Name"
-          value={newUser.lastName}
-          onChange={handleInput}
-        />
-        <br />
-        <label>Email: </label>
-        <input
-          type="text"
-          id="email"
-          placeholder="Email"
-          value={newUser.email}
-          onChange={handleInput}
-        />
-        <br />
-        <label>Password: </label>
-        <input
-          type="text"
-          id="password"
-          placeholder="Create a password"
-          value={newUser.password}
-          onChange={handleInput}
-        />
-        <br />
-        <label>Confirm Password: </label>
-        <input
-          type="text"
-          id="confirmPassword"
-          placeholder="Confrim password"
-          value={newUser.confirmPassword}
-          onChange={handleInput}
-        />
-        <br />
-        {/* signup button? */}
-      </form>
+      <Row>
+        <Form onSubmit={handleSubmit}>
+          <h2>Sign Up!</h2>
+          <h4>{validationMessage}</h4>
+          <br />
+          <Form.Label>Username: </Form.Label>
+          <Form.Control
+            required
+            autofocus
+            type="text"
+            id="userName"
+            placeholder="Create a Username"
+            value={newUser.userName}
+            onChange={handleInput}
+          />
+          <br />
+          <Form.Label>First Name: </Form.Label>
+          <Form.Control
+            required
+            type="text"
+            id="firstName"
+            placeholder="First Name"
+            value={newUser.firstName}
+            onChange={handleInput}
+          />
+          <br />
+          <Form.Label>Last Name: </Form.Label>
+          <Form.Control
+            required
+            type="text"
+            id="lastName"
+            placeholder="Last Name"
+            value={newUser.lastName}
+            onChange={handleInput}
+          />
+          <br />
+          <Form.Label>Email: </Form.Label>
+          <Form.Control
+            required
+            type="text"
+            id="email"
+            placeholder="Email"
+            value={newUser.email}
+            onChange={handleInput}
+          />
+          <br />
+          <Form.Label>Password: </Form.Label>
+          <Form.Control
+            required
+            type="text"
+            id="password"
+            placeholder="Create a password"
+            value={newUser.password}
+            onChange={handleInput}
+          />
+          <br />
+          <Form.Label>Confirm Password: </Form.Label>
+          <Form.Control
+            required
+            type="text"
+            id="confirmPassword"
+            placeholder="Confrim password"
+            value={newUser.confirmPassword}
+            onChange={handleInput}
+          />
+          <br />
+          {/* signup button? */}
+        </Form>
+      </Row>
     </div>
   );
 }
