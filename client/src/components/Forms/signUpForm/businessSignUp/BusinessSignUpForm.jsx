@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Layout } from "../../../Layout/Layout";
 import { useNavigate } from "react-router-dom";
 import { signUpBusinessHandler } from "../../../../services/apiConfigBusiness";
 
