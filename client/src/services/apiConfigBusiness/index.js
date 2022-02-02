@@ -1,6 +1,6 @@
 import axios from "axios";
 
-baseURL = "https://volunteer-app-project.herokuapp.com/api/";
+const baseURL = "https://volunteer-app-project.herokuapp.com/api/";
 
 export const fetchBusinessesHandler = (token) =>
   axios({
@@ -55,7 +55,7 @@ export const logoutBusinessHandler = () =>
       throw error;
     });
 
-export default findCurrentBusinessHandler = (token, businessName) =>
+export const findCurrentBusinessByNameHandler = (token, businessName) =>
   axios({
     url: `${baseURL}/users/currentBusiness/${businessName}`,
     headers: { Authorization: `${token}` },

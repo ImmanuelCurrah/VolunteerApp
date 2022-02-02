@@ -1,4 +1,4 @@
-import * as ReactBootStrap from 'react-bootstrap';
+import * as ReactBootStrap from "react-bootstrap";
 
 export default function LoginNavBar() {
   return (
@@ -11,7 +11,7 @@ export default function LoginNavBar() {
         fixed="top"
       >
         <ReactBootStrap.Container>
-          <ReactBootStrap.Navbar.Brand href="#home">
+          <ReactBootStrap.Navbar.Brand href="/">
             Volunteer App
           </ReactBootStrap.Navbar.Brand>
           <ReactBootStrap.Navbar.Toggle aria-controls="basic-navbar-nav" />
