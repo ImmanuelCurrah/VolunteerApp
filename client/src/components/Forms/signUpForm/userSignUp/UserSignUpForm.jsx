@@ -59,6 +59,7 @@ export default function UserSignUpForm() {
         <label>Username: </label>
         <input
           type="text"
+          id="userName"
           placeholder="Create a Username"
           value={newUser.userName}
           onChange={handleInput}
@@ -67,6 +68,7 @@ export default function UserSignUpForm() {
         <label>First Name: </label>
         <input
           type="text"
+          id="firstName"
           placeholder="First Name"
           value={newUser.firstName}
           onChange={handleInput}
@@ -75,6 +77,7 @@ export default function UserSignUpForm() {
         <label>Last Name: </label>
         <input
           type="text"
+          id="lastName"
           placeholder="Last Name"
           value={newUser.lastName}
           onChange={handleInput}
@@ -83,6 +86,7 @@ export default function UserSignUpForm() {
         <label>Email: </label>
         <input
           type="text"
+          id="email"
           placeholder="Email"
           value={newUser.email}
           onChange={handleInput}
@@ -91,6 +95,7 @@ export default function UserSignUpForm() {
         <label>Password: </label>
         <input
           type="text"
+          id="password"
           placeholder="Create a password"
           value={newUser.password}
           onChange={handleInput}
@@ -99,6 +104,7 @@ export default function UserSignUpForm() {
         <label>Confirm Password: </label>
         <input
           type="text"
+          id="confirmPassword"
           placeholder="Confrim password"
           value={newUser.confirmPassword}
           onChange={handleInput}

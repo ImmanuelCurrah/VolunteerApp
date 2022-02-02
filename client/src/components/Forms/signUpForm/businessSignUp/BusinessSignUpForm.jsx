@@ -61,6 +61,7 @@ export default function BusinessSignUpForm() {
           <label>Username: </label>
           <input
             type="text"
+            id="userName"
             placeholder="Create a Username"
             value={newBusiness.userName}
             onChange={handleInput}
@@ -69,6 +70,7 @@ export default function BusinessSignUpForm() {
           <label>Business Name: </label>
           <input
             type="text"
+            id="businessName"
             placeholder="Business Name"
             value={newBusiness.businessName}
             onChange={handleInput}
@@ -77,6 +79,7 @@ export default function BusinessSignUpForm() {
           <label>Email: </label>
           <input
             type="text"
+            id="email"
             placeholder="Email"
             value={newBusiness.email}
             onChange={handleInput}
@@ -85,6 +88,7 @@ export default function BusinessSignUpForm() {
           <label>Password: </label>
           <input
             type="text"
+            id="password"
             placeholder="Create a password"
             value={newBusiness.password}
             onChange={handleInput}
@@ -93,6 +97,7 @@ export default function BusinessSignUpForm() {
           <label>Confirm Password: </label>
           <input
             type="text"
+            id="confirmPassword"
             placeholder="Confrim password"
             value={newBusiness.confirmPassword}
             onChange={handleInput}
