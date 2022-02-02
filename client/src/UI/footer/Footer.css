@@ -1,0 +1,9 @@
+.footer {
+  background: #f8f9fa;
+  border-top: 1px solid #000;
+}
+
+.footer h5 {
+  text-align: center;
+  padding: 20px;
+}
