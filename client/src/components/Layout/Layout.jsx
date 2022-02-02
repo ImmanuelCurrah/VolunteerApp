@@ -1,7 +1,6 @@
 import LoginNavBar from "../../UI/Nav/PreLoginNav/LoginNavBar";
 import Footer from "../../UI/footer/Footer";
 
-
 export const Layout = (props) => {
   return (
     <div>
@@ -9,5 +8,5 @@ export const Layout = (props) => {
       <div className="props-children">{props.children}</div>
       <Footer />
     </div>
-  )
+  );
 };
