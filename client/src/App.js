@@ -1,7 +1,8 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-import HomePage from './screens/homePage/HomePage';
-import { Routes, Route } from 'react-router-dom';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import HomePage from "./screens/homePage/HomePage";
+import { Routes, Route } from "react-router-dom";
+import CreatePost from "./screens/createPostPage/CreatePost";
 
 function App() {
   return (
@@ -18,11 +19,7 @@ function App() {
         <Route path="/contact-us" element={<h2>contact us page</h2>} />
         <Route path="/about-us" element={<h2>about us page</h2>} />
         <Route path="/account" element={<h2>account page</h2>} />
-        <Route path="/create-post-user" element={<h2>user post page</h2>} />
-        <Route
-          path="/create-post-business"
-          element={<h2>create a post business page</h2>}
-        />
+        <Route path="/create-post-business" element={<CreatePost />} />
       </Routes>
     </div>
   );
