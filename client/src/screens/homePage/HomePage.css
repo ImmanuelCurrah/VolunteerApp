@@ -27,6 +27,26 @@
   padding: 10px;
 }
 
+.signup-link-div ul li,
+.login-link-div ul li {
+  list-style: none;
+  padding: 5px;
+}
+
+.accordion-body {
+  background: #f8f9fa !important;
+}
+
+.signup-link-div ul li a,
+.login-link-div ul li a {
+  color: #6b6b6b !important;
+}
+
+.signup-link-div ul li a:hover,
+.login-link-div ul li a:hover {
+  opacity: 0.8;
+}
+
 .homepage-img {
   padding: 10px;
   margin: 0 20px 0 0;
@@ -37,6 +57,11 @@
   width: 400px;
   border: 5px solid #000;
   border-radius: 50%;
+}
+
+.link-div {
+  display: flex;
+  flex-direction: column;
 }
 
 /* Homepage featured */

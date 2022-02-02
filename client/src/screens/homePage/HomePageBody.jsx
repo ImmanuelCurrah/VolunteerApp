@@ -1,5 +1,6 @@
 import React from 'react';
 import { Volunteer, Balloons, Beach, Desert } from '../../assets/index.js';
+import HomepageAccordian from './HomepageAccordian.jsx';
 import './HomePage.css';
 
 export default function HomePageBody() {
@@ -17,6 +18,9 @@ export default function HomePageBody() {
               placeat! Aliquam voluptas ut, ex, doloremque deserunt suscipit
               consectetur distinctio maiores rerum quidem cupiditate.
             </p>
+            <div className="link-div">
+              <HomepageAccordian />
+            </div>
           </div>
         </div>
         <div className="homepage-img">
