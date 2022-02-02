@@ -1,0 +1,36 @@
+.Homepage {
+  margin: 10vw 40px 40px 40px;
+}
+.homepage-top {
+  display: flex;
+  border-bottom: 1px solid #000;
+  padding-bottom: 50px;
+}
+.homepage-header-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.homepage-header {
+  font-size: calc(1.5rem + 1.5vw) !important;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.homepage-para p {
+  padding: 10px;
+}
+
+.homepage-img {
+  padding: 10px;
+}
+
+.homepage-img img {
+  height: 350px;
+  width: 400px;
+  border: 5px solid #000;
+  border-radius: 50%;
+}
