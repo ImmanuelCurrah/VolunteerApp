@@ -2,14 +2,14 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { loginUserHandler } from '../../../services/apiConfigUser/index.js';
 import UserLoginForm from '../../../components/Forms/loginForm/userLogin/UserLoginForm';
-import './UserLogin.css';
+import '../Login.css';
 
 const login_input = {
   email: '',
   password: '',
 };
 
-const URL = 'https://volunteer-app-project.herokuapp.com/api/';
+// const URL = 'https://volunteer-app-project.herokuapp.com/api/';
 
 export default function UserLogin() {
   const [userInput, setUserInput] = useState(login_input);
@@ -28,16 +28,16 @@ export default function UserLogin() {
     try {
       e.preventDefault();
       const res = await loginUserHandler(userInput);
-      console.log(res.data.data);
-      //     // const value = res.data.data.user;
-      // navigate('/');
+      console.log(res.data.data.user);
+      // const value = res.data.data.user;
+      // navigate('/business post page');
     } catch (error) {
       console.log(error);
     }
   };
 
   return (
-    <div className="user-login-page">
+    <div className="login-page">
       <h2>Volunteer Login</h2>
       <UserLoginForm
         userInput={userInput}

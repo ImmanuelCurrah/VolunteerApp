@@ -5,7 +5,7 @@ export default function UserLoginForm(props) {
   const { email, password } = props.userInput;
 
   return (
-    <div className="user-login-form">
+    <div className="login-form">
       <Row>
         <Form onSubmit={props.handleLoginSubmit}>
           <Form.Label>Email</Form.Label>
