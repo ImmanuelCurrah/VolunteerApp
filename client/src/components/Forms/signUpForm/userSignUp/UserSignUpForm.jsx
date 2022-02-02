@@ -3,7 +3,6 @@ import { Layout } from "../../../Layout/Layout";
 import { useNavigate } from "react-router-dom";
 // sign up user handler from api config?
 
-import React from 'react';
 
 export default function UserSignUpForm() {
 

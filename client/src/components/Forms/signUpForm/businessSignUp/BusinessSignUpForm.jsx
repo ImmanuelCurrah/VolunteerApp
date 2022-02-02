@@ -4,8 +4,6 @@ import { useNavigate } from "react-router-dom";
 // sign up business handler from api config
 
 
-import React from 'react';
-
 export default function BusinessSignUpForm() {
 
   const [newBusiness, setNewBusiness] = useState({
