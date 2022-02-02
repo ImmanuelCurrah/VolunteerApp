@@ -37,7 +37,7 @@ export default function UserLogin() {
   };
 
   return (
-    <div className="user-login-page">
+    <div className="login-page">
       <h2>Volunteer Login</h2>
       <UserLoginForm
         userInput={userInput}
