@@ -18,12 +18,12 @@ export default function BusinessSignUpForm() {
   const [valid, setValid] = useState(false);
   const navigation = useNavigate();
 
-  // handleSubmit function: signUpBusinessHandler?
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     await signUpBusinessHandler(newBusiness);
     console.log(newBusiness);
-    // navigation("/login"); //login business?
+    navigation("/login-business");
   }
 
   const handleInput = (e) => {

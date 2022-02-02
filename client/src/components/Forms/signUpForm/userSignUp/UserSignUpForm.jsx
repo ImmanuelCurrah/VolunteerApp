@@ -19,12 +19,12 @@ export default function UserSignUpForm() {
   const [valid, setValid] = useState(false);
   const navigation = useNavigate();
 
-  // handleSubmit function: signUpUserHandler?
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     await signUpUserHandler(newUser);
     console.log(newUser);
-    // navigation("/login");
+    navigation("/login-user");
   }
 
   const handleInput = (e) => {
