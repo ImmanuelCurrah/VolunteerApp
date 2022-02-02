@@ -1,5 +1,5 @@
 import React from 'react';
-import { Volunteer } from '../../assets/index.js';
+import { Volunteer, Balloons, Beach, Desert } from '../../assets/index.js';
 import './HomePage.css';
 
 export default function HomePageBody() {
@@ -25,7 +25,17 @@ export default function HomePageBody() {
       </section>
 
       {/* featured volunteer events section */}
-      <section></section>
+      <section className="home-featured">
+        <h2 className="featured-header">Featured Volunteer Events</h2>
+        <div className="featured-posts">
+          <h5>Placeholder Event Name</h5>
+          <img src={Balloons} alt="placeholder" />
+          <h5>Placeholder Event Name</h5>
+          <img src={Beach} alt="placeholder" />
+          <h5>Placeholder Event Name</h5>
+          <img src={Desert} alt="placeholder" />
+        </div>
+      </section>
     </div>
   );
 }

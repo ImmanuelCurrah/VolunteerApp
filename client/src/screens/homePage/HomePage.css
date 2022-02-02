@@ -1,6 +1,8 @@
 .Homepage {
   margin: 10vw 40px 40px 40px;
 }
+
+/* Homepage top */
 .homepage-top {
   display: flex;
   border-bottom: 1px solid #000;
@@ -18,6 +20,7 @@
   font-size: calc(1.5rem + 1.5vw) !important;
   text-align: center;
   margin-bottom: 40px;
+  font-weight: bold;
 }
 
 .homepage-para p {
@@ -26,6 +29,7 @@
 
 .homepage-img {
   padding: 10px;
+  margin: 0 20px 0 0;
 }
 
 .homepage-img img {
@@ -33,4 +37,89 @@
   width: 400px;
   border: 5px solid #000;
   border-radius: 50%;
+}
+
+/* Homepage featured */
+.home-featured {
+  margin-top: 50px;
+}
+.featured-header {
+  text-align: center;
+  margin-bottom: 20px;
+  text-decoration: underline;
+}
+
+.featured-posts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.featured-posts img {
+  height: 300px;
+  width: 300px;
+  padding: 10px;
+  margin: 5px;
+}
+
+/* media queries */
+@media screen and (max-width: 750px) {
+  /* home top section */
+  .homepage-top {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #000;
+    padding-bottom: 25px;
+  }
+  .homepage-header-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+  }
+
+  .homepage-header {
+    /* font-size: 18px !important; */
+    font-weight: bold;
+    text-align: center;
+    margin: 35px auto 40px;
+  }
+
+  .homepage-para {
+    margin: 5px 25px;
+  }
+
+  .homepage-para p {
+    padding: 5px;
+  }
+
+  .homepage-img {
+    display: flex;
+    padding: 10px;
+    margin: 0 10px 0 0;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .homepage-img img {
+    height: 150px;
+    width: 200px;
+    border: 5px solid #000;
+    border-radius: 50%;
+  }
+
+  /* featured section */
+  .featured-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .featured-posts img {
+    height: 200px;
+    width: 200px;
+    padding: 10px;
+    margin: 5px;
+  }
 }
