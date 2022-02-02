@@ -1,6 +1,6 @@
-import axios from "axios";
+import axios from 'axios';
 
-baseURL = "https://volunteer-app-project.herokuapp.com/api/";
+const baseURL = 'https://volunteer-app-project.herokuapp.com/api/';
 
 export const fetchUsersHandler = (token) =>
   axios({
@@ -17,7 +17,7 @@ export const fetchUsersHandler = (token) =>
 
 export const signUpUserHandler = (data) =>
   axios({
-    method: "post",
+    method: 'post',
     url: `${baseURL}/signup`,
     data: data,
   })
@@ -31,7 +31,7 @@ export const signUpUserHandler = (data) =>
 
 export const loginUserHandler = (data) =>
   axios({
-    method: "post",
+    method: 'post',
     url: `${baseURL}/login`,
     data: data,
   })
@@ -55,7 +55,7 @@ export const logoutUserHandler = () =>
       throw error;
     });
 
-export default findCurrentUserHandler = (token, userName) =>
+export const findCurrentUserHandler = (token, userName) =>
   axios({
     url: `${baseURL}/users/currentUser/${userName}`,
     headers: { Authorization: `${token}` },
@@ -82,7 +82,7 @@ export const findCurrentUserByIdHandler = (id) =>
 
 export const updateUserHandler = (data, userName) =>
   axios({
-    method: "put",
+    method: 'put',
     url: `${baseURL}/updated/${userName}`,
     data: data,
   })
@@ -96,7 +96,7 @@ export const updateUserHandler = (data, userName) =>
 
 export const deleteUserHandler = (id) =>
   axios({
-    method: "delete",
+    method: 'delete',
     url: `${baseURL}/${id}`,
   })
     .then((response) => {
@@ -109,7 +109,7 @@ export const deleteUserHandler = (id) =>
 
 export const createUserPostHandler = (data, id) =>
   axios({
-    method: "post",
+    method: 'post',
     url: `${baseURL}/users/post/${id}`,
     data: data,
   })
