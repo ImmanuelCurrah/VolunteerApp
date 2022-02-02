@@ -1,9 +1,9 @@
-// import logged in navbar
+import PostLoginNav from "../../UI/Nav/PostLoginNav/PostLoginNav";
 
 export const LoggedInLayout = (props) => {
   return (
     <div>
-      {/* logged in navbar */}
+      <PostLoginNav />
       <div>{props.children}</div>
       {/* footer goes here */}
     </div>

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { Layout } from "../../../Layout/Layout";
 import { useNavigate } from "react-router-dom";
-// sign up business handler from api config
+import { signUpBusinessHandler } from "../../../../services/apiConfigBusiness";
 
 
 export default function BusinessSignUpForm() {
@@ -18,12 +17,12 @@ export default function BusinessSignUpForm() {
   const [valid, setValid] = useState(false);
   const navigation = useNavigate();
 
-  // handleSubmit function: signUpBusinessHandler?
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // await signUpBusinessHandler(newBusiness);
+    await signUpBusinessHandler(newBusiness);
     console.log(newBusiness);
-    // navigation("/login"); //login business?
+    navigation("/login-business");
   }
 
   const handleInput = (e) => {
@@ -54,7 +53,6 @@ export default function BusinessSignUpForm() {
   };
 
   return (
-    <Layout>
       <div className="business-signup-container">
         <form className="business-signup-form" onSubmit={handleSubmit}>
           <h2>Sign up your business!</h2>
@@ -103,6 +101,5 @@ export default function BusinessSignUpForm() {
           {/* signup button? */}
         </form>
       </div>
-    </Layout>
   )
 }
