@@ -2,6 +2,8 @@ import React from 'react';
 import { Row, Form } from 'react-bootstrap';
 
 export default function UserLoginForm(props) {
+  const { email, password } = props.userInput;
+
   return (
     <div className="user-login-form">
       <Row>
@@ -12,9 +14,9 @@ export default function UserLoginForm(props) {
             autoFocus
             id="email"
             type="text"
-            value={props.email}
+            value={email}
             placeholder="Email"
-            onChange={props.handleTextInput}
+            onChange={props.handleLoginChange}
           />
           <br />
 
@@ -23,9 +25,9 @@ export default function UserLoginForm(props) {
             required
             id="password"
             type="password"
-            value={props.password}
+            value={password}
             placeholder="password"
-            onChange={props.handleTextInput}
+            onChange={props.handleLoginChange}
           />
           <br />
           <button className="login-btn">Login</button>

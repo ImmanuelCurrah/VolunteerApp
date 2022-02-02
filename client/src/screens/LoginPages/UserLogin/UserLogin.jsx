@@ -27,9 +27,10 @@ export default function UserLogin() {
   const handleLoginSubmit = async (e) => {
     try {
       e.preventDefault();
-      //     // const res = await loginUserHandler();
+      const res = await loginUserHandler(userInput);
+      console.log(res.data.data);
       //     // const value = res.data.data.user;
-      navigate('/');
+      // navigate('/');
     } catch (error) {
       console.log(error);
     }
