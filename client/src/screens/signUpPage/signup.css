@@ -1,3 +1,7 @@
+.signup-page {
+  min-height: 100vh;
+}
+
 .signup-page h2 {
   text-align: center;
   margin-top: 11vh;

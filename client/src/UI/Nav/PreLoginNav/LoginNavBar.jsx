@@ -1,4 +1,4 @@
-import * as ReactBootStrap from "react-bootstrap";
+import * as ReactBootStrap from 'react-bootstrap';
 
 export default function LoginNavBar() {
   return (
