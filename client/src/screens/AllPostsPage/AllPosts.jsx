@@ -1,15 +1,15 @@
-import { useState, useEffect } from 'react';
-import { fetchBusinessesHandler } from '../../services/apiConfigBusiness/index.js';
-import { Layout } from '../../components/Layout/Layout.jsx';
-import './AllPosts.css';
+import { useState, useEffect } from "react";
+import { fetchBusinessesHandler } from "../../services/apiConfigBusiness/index.js";
+import { Layout } from "../../components/Layout/Layout.jsx";
+import "./AllPosts.css";
 
 export default function AllPosts() {
   const [businessPosts, setBusinessPosts] = useState([]);
 
   useEffect(() => {
     // variable to grab token out of local storage to pass in as argument in the fetch post request
-    const userToken = localStorage.getItem('userToken');
-    const businessToken = localStorage.getItem('businessToken');
+    const userToken = localStorage.getItem("userToken");
+    const businessToken = localStorage.getItem("businessToken");
 
     const fetchBizPosts = async () => {
       const res = await fetchBusinessesHandler(userToken || businessToken);
@@ -18,6 +18,10 @@ export default function AllPosts() {
     };
     fetchBizPosts();
   }, []);
+
+  if (!businessPosts) {
+    return "Loading...";
+  }
 
   const renderAllPosts = (post, index) => {
     return (
@@ -45,7 +49,7 @@ export default function AllPosts() {
   };
 
   if (!businessPosts) {
-    return 'Loading...';
+    return "Loading...";
   }
 
   return (
