@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { fetchBusinessesHandler } from '../../services/apiConfigBusiness/index.js';
+import { Layout } from '../../components/Layout/Layout.jsx';
+import './AllPosts.css';
 
 export default function AllPosts() {
   const [businessPosts, setBusinessPosts] = useState([]);
@@ -18,12 +20,23 @@ export default function AllPosts() {
 
   const renderAllPosts = (post, index) => {
     return (
-      <div className="card text-center shadow" key={index}>
+      <div className="card text-center shadow all-posts-card" key={index}>
         <div className="overflow">
           <div className="card-body text-dark">
             <h3>{post.businessName}</h3>
             <h5>{post.email}</h5>
-            <p className="post-para">{post.posts}Post Here</p>
+
+            {post.posts.map((post, index) => {
+              console.log({ post });
+
+              return (
+                <div key={index}>
+                  <h5>{post.event}</h5>
+                  <h6>{post.numberNeeded}</h6>
+                  <p>{post.content}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -31,9 +44,14 @@ export default function AllPosts() {
   };
 
   return (
-    <div>
-      <h3>All Posts</h3>
-      <div className="all-posts-div">{businessPosts.map(renderAllPosts)}</div>
-    </div>
+    <Layout>
+      <div className="all-posts-container">
+        <div className="allposts-headers">
+          <h2>Upcoming Events</h2>
+          <h6>that are looking for volunteers!</h6>
+        </div>
+        <div className="all-posts-div">{businessPosts.map(renderAllPosts)}</div>
+      </div>
+    </Layout>
   );
 }
