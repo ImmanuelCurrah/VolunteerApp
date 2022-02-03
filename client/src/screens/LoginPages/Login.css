@@ -1,3 +1,7 @@
+.login-page {
+  min-height: 100vh;
+}
+
 .login-page h2 {
   text-align: center;
   margin-top: 11vh;

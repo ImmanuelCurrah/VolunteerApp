@@ -6,17 +6,24 @@ import Footer from '../../UI/footer/Footer';
 
 export default function HomePage() {
   // check local storage for token that will be stored to see if there is a current login - return post login nav if there is a token and login nav if not
-  //     if (loggedin) {
-  //       return <PostLoginNav />;
-  //   <HomePageBody />
-  //    <Footer />
-  //     } else {
-  return (
-    <div>
-      <LoginNavBar />
-      <HomePageBody />
-      <Footer />
-    </div>
-  );
-  //   }
+
+  const token = localStorage.getItem('userToken');
+
+  if (token) {
+    return (
+      <div>
+        <PostLoginNav />;
+        <HomePageBody />
+        <Footer />
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <LoginNavBar />
+        <HomePageBody />
+        <Footer />
+      </div>
+    );
+  }
 }
