@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { signUpBusinessHandler } from "../../../../services/apiConfigBusiness";
 import { Form, Row } from "react-bootstrap";
 
+
 export default function BusinessSignUpForm() {
 
   const [newBusiness, setNewBusiness] = useState({
@@ -53,10 +54,9 @@ export default function BusinessSignUpForm() {
   };
 
   return (
-    <div className="business-signup-container">
+    <div className="signup-form">
       <Row>
-        <Form className="business-signup-form" onSubmit={handleSubmit}>
-          <h2>Sign up your business!</h2>
+        <Form onSubmit={handleSubmit}>
           <h4>{validationMessage}</h4>
           <br />
           <Form.Label>Username: </Form.Label>
@@ -110,7 +110,7 @@ export default function BusinessSignUpForm() {
             onChange={handleInput}
           />
           <br />
-          {/* signup button? */}
+          <button className="signup-btn">Sign In</button>
         </Form>
       </Row>
   </div>

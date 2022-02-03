@@ -52,10 +52,9 @@ export default function UserSignUpForm() {
   };
 
   return (
-    <div className="user-signup-container">
+    <div className="signup-form">
       <Row>
         <Form onSubmit={handleSubmit}>
-          <h2>Sign Up!</h2>
           <h4>{validationMessage}</h4>
           <br />
           <Form.Label>Username: </Form.Label>
@@ -119,7 +118,7 @@ export default function UserSignUpForm() {
             onChange={handleInput}
           />
           <br />
-          {/* signup button? */}
+          <button className="signup-btn">Sign In</button>
         </Form>
       </Row>
     </div>
