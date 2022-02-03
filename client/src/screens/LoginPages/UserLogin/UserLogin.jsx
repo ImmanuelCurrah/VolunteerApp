@@ -1,13 +1,13 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { loginUserHandler } from "../../../services/apiConfigUser/index.js";
-import UserLoginForm from "../../../components/Forms/loginForm/userLogin/UserLoginForm";
-import "../Login.css";
-import { Layout } from "../../../components/Layout/Layout.jsx";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { loginUserHandler } from '../../../services/apiConfigUser/index.js';
+import UserLoginForm from '../../../components/Forms/loginForm/userLogin/UserLoginForm';
+import '../Login.css';
+import { Layout } from '../../../components/Layout/Layout.jsx';
 
 const login_input = {
-  email: "",
-  password: "",
+  email: '',
+  password: '',
 };
 
 export default function UserLogin() {
@@ -27,10 +27,10 @@ export default function UserLogin() {
     try {
       e.preventDefault();
       const res = await loginUserHandler(userInput);
-      localStorage.setItem("userToken", res.data.data.token);
-      localStorage.setItem("userName", res.data.data.user.userName);
+      localStorage.setItem('userToken', res.data.data.token);
+      localStorage.setItem('userName', res.data.data.user.userName);
       setUserInput(login_input);
-      navigate("/account/user");
+      navigate('/account/user');
     } catch (error) {
       console.log(error);
     }
