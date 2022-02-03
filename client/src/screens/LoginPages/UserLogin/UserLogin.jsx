@@ -1,15 +1,14 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { loginUserHandler } from '../../../services/apiConfigUser/index.js';
-import UserLoginForm from '../../../components/Forms/loginForm/userLogin/UserLoginForm';
-import '../Login.css';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { loginUserHandler } from "../../../services/apiConfigUser/index.js";
+import UserLoginForm from "../../../components/Forms/loginForm/userLogin/UserLoginForm";
+import "../Login.css";
+import { Layout } from "../../../components/Layout/Layout.jsx";
 
 const login_input = {
-  email: '',
-  password: '',
+  email: "",
+  password: "",
 };
-
-// const URL = 'https://volunteer-app-project.herokuapp.com/api/';
 
 export default function UserLogin() {
   const [userInput, setUserInput] = useState(login_input);
@@ -28,8 +27,9 @@ export default function UserLogin() {
     try {
       e.preventDefault();
       const res = await loginUserHandler(userInput);
-      console.log(res.data.data.user);
-      // const value = res.data.data.user;
+      localStorage.setItem("userToken", res.data.data.token);
+      localStorage.setItem("userName", res.data.data.user.firstName);
+      setUserInput(login_input);
       // navigate('/business post page');
     } catch (error) {
       console.log(error);
@@ -37,13 +37,15 @@ export default function UserLogin() {
   };
 
   return (
-    <div className="login-page">
-      <h2>Volunteer Login</h2>
-      <UserLoginForm
-        userInput={userInput}
-        handleLoginChange={handleLoginChange}
-        handleLoginSubmit={handleLoginSubmit}
-      />
-    </div>
+    <Layout>
+      <div className="login-page">
+        <h2>Volunteer Login</h2>
+        <UserLoginForm
+          userInput={userInput}
+          handleLoginChange={handleLoginChange}
+          handleLoginSubmit={handleLoginSubmit}
+        />
+      </div>
+    </Layout>
   );
 }
