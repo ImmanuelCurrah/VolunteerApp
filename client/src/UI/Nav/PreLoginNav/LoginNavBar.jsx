@@ -1,4 +1,4 @@
-import * as ReactBootStrap from "react-bootstrap";
+import * as ReactBootStrap from 'react-bootstrap';
 
 export default function LoginNavBar() {
   return (
@@ -33,7 +33,7 @@ export default function LoginNavBar() {
                 <ReactBootStrap.NavDropdown.Item href="/sign-up-user">
                   Volunteer Signup
                 </ReactBootStrap.NavDropdown.Item>
-                <ReactBootStrap.NavDropdown.Item href="/login-business">
+                <ReactBootStrap.NavDropdown.Item href="/sign-up-business">
                   Business Signup
                 </ReactBootStrap.NavDropdown.Item>
               </ReactBootStrap.NavDropdown>
