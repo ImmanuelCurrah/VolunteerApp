@@ -1,4 +1,4 @@
-import * as ReactBootStrap from "react-bootstrap";
+import * as ReactBootStrap from 'react-bootstrap';
 
 export default function LoginNavBar() {
   return (
@@ -12,7 +12,7 @@ export default function LoginNavBar() {
       >
         <ReactBootStrap.Container>
           <ReactBootStrap.Navbar.Brand href="/">
-            Volunteer App
+            VolunteerApp
           </ReactBootStrap.Navbar.Brand>
           <ReactBootStrap.Navbar.Toggle aria-controls="basic-navbar-nav" />
           <ReactBootStrap.Navbar.Collapse id="basic-navbar-nav">
