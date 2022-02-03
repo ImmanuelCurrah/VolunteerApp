@@ -3,9 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { signUpBusinessHandler } from "../../../../services/apiConfigBusiness";
 import { Form, Row } from "react-bootstrap";
 
-
 export default function BusinessSignUpForm() {
-
   const [newBusiness, setNewBusiness] = useState({
     userName: "",
     businessName: "",
@@ -18,13 +16,12 @@ export default function BusinessSignUpForm() {
   const [valid, setValid] = useState(false);
   const navigation = useNavigate();
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     await signUpBusinessHandler(newBusiness);
     console.log(newBusiness);
     navigation("/login-business");
-  }
+  };
 
   const handleInput = (e) => {
     const { id, value } = e.target;
@@ -62,14 +59,14 @@ export default function BusinessSignUpForm() {
           <Form.Label>Username: </Form.Label>
           <Form.Control
             required
-            autofocus
+            autoFocus
             type="text"
             id="userName"
             placeholder="Create a Username"
             value={newBusiness.userName}
             onChange={handleInput}
           />
-          <br/>
+          <br />
           <Form.Label>Business Name: </Form.Label>
           <Form.Control
             required
@@ -79,7 +76,7 @@ export default function BusinessSignUpForm() {
             value={newBusiness.businessName}
             onChange={handleInput}
           />
-          <br/>
+          <br />
           <Form.Label>Email: </Form.Label>
           <Form.Control
             required
@@ -89,7 +86,7 @@ export default function BusinessSignUpForm() {
             value={newBusiness.email}
             onChange={handleInput}
           />
-          <br/>
+          <br />
           <Form.Label>Password: </Form.Label>
           <Form.Control
             required
@@ -99,7 +96,7 @@ export default function BusinessSignUpForm() {
             value={newBusiness.password}
             onChange={handleInput}
           />
-          <br/>
+          <br />
           <Form.Label>Confirm Password: </Form.Label>
           <Form.Control
             required
@@ -113,6 +110,6 @@ export default function BusinessSignUpForm() {
           <button className="signup-btn">Sign In</button>
         </Form>
       </Row>
-  </div>
-  )
+    </div>
+  );
 }

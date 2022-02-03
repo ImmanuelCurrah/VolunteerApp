@@ -60,7 +60,7 @@ export default function UserSignUpForm() {
           <Form.Label>Username: </Form.Label>
           <Form.Control
             required
-            autofocus
+            autoFocus
             type="text"
             id="userName"
             placeholder="Create a Username"

@@ -3,22 +3,28 @@ import {
   createBusinessPostHandler,
   findCurrentBusinessByNameHandler,
 } from "../../../../services/apiConfigBusiness";
+import { useNavigate } from "react-router-dom";
 import { Row, Form } from "react-bootstrap";
 
 export default function BusinessPostForm() {
   const [postData, setPostData] = useState({
-    title: "",
-    numberOfVolunteers: 0,
-    eventDetails: "",
+    event: "",
+    numberNeeded: "",
+    content: "",
   });
   const [id, setId] = useState("");
+  const navigate = useNavigate();
 
   const businessName = localStorage.getItem("businessName");
+  const token = localStorage.getItem("businessToken");
 
   useEffect(() => {
     const fetchCurrentUser = async () => {
-      let business = await findCurrentBusinessByNameHandler(businessName);
-      console.log(businessName);
+      let business = await findCurrentBusinessByNameHandler(
+        token,
+        businessName
+      );
+      setId(business.data.data._id);
     };
     fetchCurrentUser();
   }, []);
@@ -27,7 +33,7 @@ export default function BusinessPostForm() {
     const { id, value } = e.target;
     setPostData((prevPostData) => ({
       ...prevPostData,
-      [id]: [value],
+      [id]: value,
     }));
   };
 
@@ -35,7 +41,7 @@ export default function BusinessPostForm() {
     e.preventDefault();
     try {
       const post = await createBusinessPostHandler(postData, id);
-      console.log(post);
+      navigate("/all-posts");
     } catch (error) {
       throw error;
     }
@@ -48,8 +54,8 @@ export default function BusinessPostForm() {
           <br />
           <Form.Control
             type="text"
-            id="title"
-            value={postData.title}
+            id="event"
+            value={postData.event}
             placeholder="Name your event..."
             onChange={setPostDataHandler}
           />
@@ -58,8 +64,8 @@ export default function BusinessPostForm() {
           <br />
           <Form.Control
             type="number"
-            id="numberOfVolunteers"
-            value={postData.numberOfVolunteers}
+            id="numberNeeded"
+            value={postData.numberNeeded}
             placeholder="How many volunteers..."
             onChange={setPostDataHandler}
           />
@@ -68,8 +74,8 @@ export default function BusinessPostForm() {
           <br />
           <Form.Control
             type="text"
-            id="eventDetails"
-            value={postData.eventDetails}
+            id="content"
+            value={postData.content}
             placeholder="Description..."
             onChange={setPostDataHandler}
           />
