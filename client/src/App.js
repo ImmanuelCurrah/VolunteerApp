@@ -8,6 +8,7 @@ import UserLogin from "./screens/LoginPages/UserLogin/UserLogin";
 import BusinessLogin from "./screens/LoginPages/BusinessLogin/BusinessLogin";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import Account from "./screens/accountPage/Account";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
         <Route path="/sign-up-business" element={<SignUpBusiness />} />
         <Route path="/contact-us" element={<Contact />} />
         <Route path="/about-us" element={<h2>about us page</h2>} />
-        <Route path="/account" element={<h2>account page</h2>} />
+        <Route path="/account" element={<Account />} />
         <Route path="/create-post-business" element={<CreatePost />} />
       </Routes>
     </div>
