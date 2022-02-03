@@ -1,4 +1,4 @@
-import * as ReactBootStrap from 'react-bootstrap';
+import * as ReactBootStrap from "react-bootstrap";
 
 export default function LoginNavBar() {
   return (
@@ -18,7 +18,7 @@ export default function LoginNavBar() {
           <ReactBootStrap.Navbar.Collapse id="basic-navbar-nav">
             <ReactBootStrap.Nav className="me-auto">
               <ReactBootStrap.NavDropdown title="Login" id="basic-nav-dropdown">
-                <ReactBootStrap.NavDropdown.Item href="/login-user">
+                <ReactBootStrap.NavDropdown.Item href="/login-users">
                   Volunteer Login
                 </ReactBootStrap.NavDropdown.Item>
                 <ReactBootStrap.NavDropdown.Item href="/login-business">
