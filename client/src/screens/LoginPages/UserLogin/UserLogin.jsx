@@ -30,7 +30,7 @@ export default function UserLogin() {
       localStorage.setItem("userToken", res.data.data.token);
       localStorage.setItem("userName", res.data.data.user.userName);
       setUserInput(login_input);
-      // navigate('/business post page');
+      navigate("/account/user");
     } catch (error) {
       console.log(error);
     }
