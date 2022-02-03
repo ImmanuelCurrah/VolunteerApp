@@ -28,7 +28,7 @@ export default function UserLogin() {
       e.preventDefault();
       const res = await loginUserHandler(userInput);
       localStorage.setItem("userToken", res.data.data.token);
-      localStorage.setItem("userName", res.data.data.user.firstName);
+      localStorage.setItem("userName", res.data.data.user.userName);
       setUserInput(login_input);
       // navigate('/business post page');
     } catch (error) {
