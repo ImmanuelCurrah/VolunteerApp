@@ -1,8 +1,8 @@
-import React from 'react';
-import { Row, Form } from 'react-bootstrap';
+import React from "react";
+import { Row, Form } from "react-bootstrap";
 
 export default function BusinessLoginForm(props) {
-  // const { email, password } = props.businessInput;
+  const { email, password } = props.businessInput;
 
   return (
     <div className="login-form">
@@ -14,7 +14,7 @@ export default function BusinessLoginForm(props) {
             autoFocus
             id="email"
             type="text"
-            value={props.email}
+            value={email}
             placeholder="Email"
             onChange={props.handleLoginChange}
           />
@@ -25,7 +25,7 @@ export default function BusinessLoginForm(props) {
             required
             id="password"
             type="password"
-            value={props.password}
+            value={password}
             placeholder="password"
             onChange={props.handleLoginChange}
           />
