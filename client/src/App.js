@@ -25,7 +25,7 @@ function App() {
         <Route path="/about-us" element={<h2>about us page</h2>} />
         <Route path="/account" element={<h2>account page</h2>} />
         <Route path="/create-post-business" element={<CreatePost />} />
-        <route path="/*" element={<PageNotFound />} />
+        <Route path="/*" element={<PageNotFound />} />
       </Routes>
     </div>
   );
