@@ -1,0 +1,20 @@
+.not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20vh;
+}
+
+.not-found img {
+  border-radius: 20%;
+  /* border: 2px solid #000; */
+  box-shadow: 10px 10px;
+}
+
+.not-found a {
+  color: #000 !important;
+}
+
+.not-found a:hover {
+  opacity: 0.8;
+}
