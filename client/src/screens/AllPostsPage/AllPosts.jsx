@@ -8,10 +8,11 @@ export default function AllPosts() {
 
   useEffect(() => {
     // variable to grab token out of local storage to pass in as argument in the fetch post request
-    const token = localStorage.getItem('userToken');
+    const userToken = localStorage.getItem('userToken');
+    const businessToken = localStorage.getItem('businessToken');
 
     const fetchBizPosts = async () => {
-      const res = await fetchBusinessesHandler(`${token}`);
+      const res = await fetchBusinessesHandler(userToken || businessToken);
       console.log(res.data.data);
       setBusinessPosts(res.data.data);
     };
@@ -42,6 +43,10 @@ export default function AllPosts() {
       </div>
     );
   };
+
+  if (!businessPosts) {
+    return 'Loading...';
+  }
 
   return (
     <Layout>
