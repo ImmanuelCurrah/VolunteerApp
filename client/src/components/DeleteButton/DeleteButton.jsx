@@ -19,7 +19,16 @@ export default function DeleteButton(props) {
   const handleBusinessDelete = async () => {
     await deleteBusinessHandler(props.businessId);
 
-    toast('Deleting Record');
+    toast('Deleting Record', {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+
     logoutHandler();
     navigate('/');
   };
