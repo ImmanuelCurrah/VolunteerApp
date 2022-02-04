@@ -41,7 +41,7 @@ export default function Account() {
   const handleUserDelete = async () => {
     await deleteUserHandler(userId);
 
-    toast.success('Deleting Record');
+    // toast.success('Deleting Record');
 
     logoutHandler();
     navigate('/');
