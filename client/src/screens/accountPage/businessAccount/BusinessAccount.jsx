@@ -1,16 +1,29 @@
 import { useState, useEffect } from 'react';
 import { Layout } from '../../../components/Layout/Layout';
-import { findCurrentBusinessByNameHandler } from '../../../services/apiConfigBusiness';
+import { useNavigate } from 'react-router-dom';
+import {
+  findCurrentBusinessByNameHandler,
+  deleteBusinessHandler,
+} from '../../../services/apiConfigBusiness';
 import { Card } from 'react-bootstrap';
 import classes from './BusinessAccount.module.css';
 import DeleteButton from '../../../components/DeleteButton/DeleteButton';
+import { toast } from 'react-toastify';
 
 export default function Account() {
   const [business, setBusiness] = useState({});
   const [businessId, setBusinessId] = useState('');
 
+  const navigate = useNavigate();
+
   const businessName = localStorage.getItem('businessName');
   const token = localStorage.getItem('businessToken');
+
+  //removing tokens from local storage when account is deleted
+  const logoutHandler = () => {
+    localStorage.removeItem('businessName');
+    localStorage.removeItem('businessToken');
+  };
 
   const date = new Date(business.createdAt).toDateString();
 
@@ -20,12 +33,21 @@ export default function Account() {
         token,
         businessName
       );
-      console.log(business.data.data._id);
       setBusinessId(business.data.data._id);
       setBusiness(business.data.data);
     };
     fetchUser();
   }, []);
+
+  // delete business account request
+  const handleBusinessDelete = async () => {
+    await deleteBusinessHandler(businessId);
+
+    toast.success('Deleting Record');
+
+    logoutHandler();
+    navigate('/');
+  };
 
   return (
     <Layout>
@@ -42,7 +64,7 @@ export default function Account() {
             <Card.Link href="/all-posts">See listings</Card.Link>
           </Card.Body>
 
-          <DeleteButton businessId={businessId} />
+          <DeleteButton delete={handleBusinessDelete} />
         </Card>
       </div>
     </Layout>

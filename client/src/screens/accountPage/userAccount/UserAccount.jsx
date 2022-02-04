@@ -1,22 +1,51 @@
 import { useState, useEffect } from 'react';
 import { Layout } from '../../../components/Layout/Layout';
-import { findCurrentUserHandler } from '../../../services/apiConfigUser';
+import { useNavigate } from 'react-router-dom';
+import {
+  findCurrentUserHandler,
+  deleteUserHandler,
+} from '../../../services/apiConfigUser';
 import { Card } from 'react-bootstrap';
 import classes from './UserAccount.module.css';
+import DeleteButton from '../../../components/DeleteButton/DeleteButton';
+import { toast } from 'react-toastify';
 
 export default function Account() {
   const [user, setUser] = useState({});
+  const [userId, setUserId] = useState('');
+
+  const navigate = useNavigate();
+
   const userName = localStorage.getItem('userName');
   const token = localStorage.getItem('userToken');
+
+  //removing tokens from local storage when account is deleted
+  const logoutHandler = () => {
+    localStorage.removeItem('businessName');
+    localStorage.removeItem('businessToken');
+  };
+
   const date = new Date(user.createdAt).toDateString();
 
   useEffect(() => {
     const fetchUser = async () => {
       const user = await findCurrentUserHandler(token, userName);
+      // console.log(user.data.data);
+      setUserId(user.data.data._id);
       setUser(user.data.data);
     };
     fetchUser();
   }, []);
+
+  // delete user account
+  const handleUserDelete = async () => {
+    await deleteUserHandler(userId);
+
+    toast.success('Deleting Record');
+
+    logoutHandler();
+    navigate('/');
+  };
 
   return (
     <Layout>
@@ -33,6 +62,7 @@ export default function Account() {
             <Card.Link href="/all-posts">Click to see postings</Card.Link>
             <Card.Link href="/">Home Page</Card.Link>
           </Card.Body>
+          <DeleteButton delete={handleUserDelete} />
         </Card>
       </div>
     </Layout>

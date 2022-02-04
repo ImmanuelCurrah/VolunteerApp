@@ -94,6 +94,20 @@ export const updateBusinessHandler = (data, businessName) =>
       throw error;
     });
 
+export const createBusinessPostHandler = (data, id) =>
+  axios({
+    method: 'post',
+    url: `${baseURL}/users/post/business/${id}`,
+    data: data,
+  })
+    .then((response) => {
+      return response;
+    })
+    .catch((error) => {
+      console.error(error.message);
+      throw error;
+    });
+
 export const deleteBusinessHandler = (id) =>
   axios({
     method: 'delete',
@@ -107,11 +121,11 @@ export const deleteBusinessHandler = (id) =>
       throw error;
     });
 
-export const createBusinessPostHandler = (data, id) =>
+//delete user account
+export const deleteUserHandler = (id) =>
   axios({
-    method: 'post',
-    url: `${baseURL}/users/post/business/${id}`,
-    data: data,
+    method: 'delete',
+    url: `${baseURL}delete/${id}`,
   })
     .then((response) => {
       return response;
