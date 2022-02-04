@@ -1,4 +1,5 @@
 import * as ReactBootStrap from 'react-bootstrap';
+import "../Nav.css";
 
 export default function LoginNavBar() {
   return (
@@ -6,9 +7,10 @@ export default function LoginNavBar() {
       <ReactBootStrap.Navbar
         collapseOnSelect
         expand="xl"
-        bg="light"
-        variant="light"
+        // bg="dark"
+        variant="dark"
         fixed="top"
+        className="color-nav"
       >
         <ReactBootStrap.Container>
           <ReactBootStrap.Navbar.Brand href="/">

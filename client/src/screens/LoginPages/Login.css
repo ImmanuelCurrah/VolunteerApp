@@ -12,11 +12,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 2px solid #000;
+  border: 2px solid #3d3b8b;
   border-radius: 8px;
   margin: 30px auto;
   max-width: 400px;
-  background: #fff;
+  background: #6883ba;
   padding: 25px 45px;
 }
 
@@ -30,7 +30,7 @@
   color: #000;
   font-weight: bold;
   font-size: 15px;
-  background: rgb(175, 250, 224);
+  background: #f9f9f9;
 }
 
 .login-btn:hover {
