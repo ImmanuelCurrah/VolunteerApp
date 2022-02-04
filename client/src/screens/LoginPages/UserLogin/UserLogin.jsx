@@ -30,6 +30,7 @@ export default function UserLogin() {
       const userToken = res.data.data.token;
       const userName = res.data.data.user.userName;
 
+      //storing login session into local storage
       localStorage.setItem('userToken', userToken);
       localStorage.setItem('userName', userName);
       setUserInput(login_input);

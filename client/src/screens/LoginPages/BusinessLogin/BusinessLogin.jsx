@@ -30,8 +30,7 @@ export default function BusinessLogin() {
       const businessToken = res.data.data.token;
       const businessName = res.data.data.business.businessName;
 
-      console.log(businessName, businessToken);
-
+      // storing login session into local storage
       localStorage.setItem('businessToken', businessToken);
       localStorage.setItem('businessName', businessName);
       setBusinessInput(business_input);
