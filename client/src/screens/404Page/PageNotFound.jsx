@@ -1,15 +1,22 @@
 import { Link } from 'react-router-dom';
+import { Layout } from '../../components/Layout/Layout';
 import './PageNotFound.css';
 
 export default function PageNotFound() {
   return (
-    <div className="not-found">
-      <Link to="/">
-        <img
-          src="https://media.giphy.com/media/PIBuZutkhuKqV09TEf/giphy.gif"
-          alt="404 page not found error"
-        />
-      </Link>
-    </div>
+    <Layout>
+      <div className="not-found">
+        <div className="not-found-header">
+          <h1 className="four-oh-four-header">
+            We cannot seem to find the page you are looking for.
+          </h1>
+          <Link to="/">
+            <button className="btn btn-light button-error-page">
+              Home Page
+            </button>
+          </Link>
+        </div>
+      </div>
+    </Layout>
   );
 }
