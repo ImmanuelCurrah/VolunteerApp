@@ -1,5 +1,6 @@
 .footer {
-  background: #f8f9fa;
+  /* background: #f8f9fa; */
+  background-color: #3d3b8b;
   border-top: 1px solid #000;
   position: relative;
   bottom: 0;
@@ -9,4 +10,5 @@
 .footer h5 {
   text-align: center;
   padding: 20px;
+  color: #f9f9f9;
 }
