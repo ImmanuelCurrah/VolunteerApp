@@ -27,7 +27,6 @@ export default function PostLoginNav() {
       <ReactBootStrap.Navbar
         collapseOnSelect
         expand="xl"
-        // bg="dark"
         variant="dark"
         fixed="top"
         className="color-nav"

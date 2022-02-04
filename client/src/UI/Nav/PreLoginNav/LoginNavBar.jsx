@@ -7,7 +7,6 @@ export default function LoginNavBar() {
       <ReactBootStrap.Navbar
         collapseOnSelect
         expand="xl"
-        // bg="dark"
         variant="dark"
         fixed="top"
         className="color-nav"
