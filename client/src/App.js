@@ -32,18 +32,7 @@ function App() {
         <Route path="/create-post-business" element={<CreatePost />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
-
-      <ToastContainer
-        position="top-left"
-        autoClose={4000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
+      <ToastContainer />
     </div>
   );
 }
