@@ -8,7 +8,6 @@ export default function CreatePost() {
     <Layout>
       <div className="business-post-form">
         <h2>Post Your Event</h2>
-
         <BusinessPostForm />
       </div>
     </Layout>
