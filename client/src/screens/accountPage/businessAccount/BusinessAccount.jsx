@@ -60,11 +60,22 @@ export default function Account() {
               {business.email}
             </Card.Subtitle>
             <Card.Text>{`Member since: ${date}`}</Card.Text>
-            <Card.Link href="/create-post-business">Create a Post</Card.Link>
-            <Card.Link href="/all-posts">See listings</Card.Link>
+            <div className={classes.accountButtons}>
+              <Card.Link href="/create-post-business">
+                <button type="button" className="btn btn-info">
+                  Create a Post
+                </button>
+              </Card.Link>
+              <Card.Link href="/all-posts">
+                <button type="button" className="btn btn-info">
+                  See Listings
+                </button>
+              </Card.Link>
+            </div>
           </Card.Body>
-
-          <DeleteButton delete={handleBusinessDelete} />
+          <div className={classes.deleteBtn}>
+            <DeleteButton delete={handleBusinessDelete} />
+          </div>
         </Card>
       </div>
     </Layout>

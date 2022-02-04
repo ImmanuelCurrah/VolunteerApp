@@ -30,7 +30,7 @@ export default function Account() {
   useEffect(() => {
     const fetchUser = async () => {
       const user = await findCurrentUserHandler(token, userName);
-      // console.log(user.data.data);
+
       setUserId(user.data.data._id);
       setUser(user.data.data);
     };
@@ -51,19 +51,33 @@ export default function Account() {
     <Layout>
       <div className={classes.user}>
         <h2>Account Overview</h2>
-        <Card style={{ width: '18rem' }}>
-          <Card.Body>
-            <Card.Title>{user.userName}</Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">{`${user.firstName} ${user.lastName}`}</Card.Subtitle>
-            <Card.Subtitle className="mb-2 text-muted">
-              {user.email}
-            </Card.Subtitle>
-            <Card.Text>{`Member since: ${date}`}</Card.Text>
-            <Card.Link href="/all-posts">Click to see postings</Card.Link>
-            <Card.Link href="/">Home Page</Card.Link>
-          </Card.Body>
-          <DeleteButton delete={handleUserDelete} />
-        </Card>
+        <div className={classes.accountContainer}>
+          <Card>
+            <Card.Body>
+              <Card.Title>{user.userName}</Card.Title>
+              <Card.Subtitle className="mb-2 text-muted">{`${user.firstName} ${user.lastName}`}</Card.Subtitle>
+              <Card.Subtitle className="mb-2 text-muted">
+                {user.email}
+              </Card.Subtitle>
+              <Card.Text>{`Member since: ${date}`}</Card.Text>
+              <div className={classes.accountButtons}>
+                <Card.Link href="/all-posts">
+                  <button type="button" className="btn btn-info">
+                    See All Postings
+                  </button>
+                </Card.Link>
+                <Card.Link href="/">
+                  <button type="button" className="btn btn-info">
+                    Home Page
+                  </button>
+                </Card.Link>
+              </div>
+            </Card.Body>
+            <div className={classes.deleteBtn}>
+              <DeleteButton delete={handleUserDelete} />
+            </div>
+          </Card>
+        </div>
       </div>
     </Layout>
   );
