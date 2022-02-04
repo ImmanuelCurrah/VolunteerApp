@@ -1,3 +1,8 @@
+.card {
+  width: 50% !important;
+  max-width: 625px !important;
+}
+
 .user {
   display: flex;
   flex-direction: column;
@@ -6,14 +11,23 @@
   min-height: 100vh;
 }
 
+.accountButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #000;
+}
+
 .deleteBtn {
   display: flex;
   justify-content: center;
   padding: 20px;
 }
 
-.accountButtons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.titles {
+  font-weight: 400;
+  text-decoration: underline;
+  color: #000 !important;
 }

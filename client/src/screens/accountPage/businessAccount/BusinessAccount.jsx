@@ -7,7 +7,7 @@ import {
 } from '../../../services/apiConfigBusiness';
 import { Card } from 'react-bootstrap';
 import classes from './BusinessAccount.module.css';
-import DeleteButton from '../../../components/DeleteButton/DeleteButton';
+import DeleteButton from '../../../components/Buttons/DeleteButton/DeleteButton';
 import { toast } from 'react-toastify';
 
 export default function Account() {
@@ -53,21 +53,29 @@ export default function Account() {
     <Layout>
       <div className={classes.business}>
         <h2>Account Overview</h2>
-        <Card style={{ width: '18rem' }}>
+        <Card className={classes.card}>
           <Card.Body>
-            <Card.Title>{business.businessName}</Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">
+            <Card.Title>
+              <span className={classes.titles}>Name of Business</span> <br />
+              {business.businessName}
+            </Card.Title>
+            <Card.Title className="mb-2 text-muted">
+              <span className={classes.titles}>Email</span> <br />
               {business.email}
-            </Card.Subtitle>
-            <Card.Text>{`Member since: ${date}`}</Card.Text>
+            </Card.Title>
+            <Card.Text>
+              <span className={classes.titles}>Member since</span>
+              <br />
+              {`${date}`}
+            </Card.Text>
             <div className={classes.accountButtons}>
               <Card.Link href="/create-post-business">
-                <button type="button" className="btn btn-info">
+                <button type="button" className="btn btn-info acct-btn">
                   Create a Post
                 </button>
               </Card.Link>
               <Card.Link href="/all-posts">
-                <button type="button" className="btn btn-info">
+                <button type="button" className="btn btn-info acct-btn">
                   See Listings
                 </button>
               </Card.Link>

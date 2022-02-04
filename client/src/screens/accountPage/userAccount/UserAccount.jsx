@@ -5,9 +5,10 @@ import {
   findCurrentUserHandler,
   deleteUserHandler,
 } from '../../../services/apiConfigUser';
+import '../../../components/Buttons/ButtonStyling/ButtonStyling.css';
 import { Card } from 'react-bootstrap';
 import classes from './UserAccount.module.css';
-import DeleteButton from '../../../components/DeleteButton/DeleteButton';
+import DeleteButton from '../../../components/Buttons/DeleteButton/DeleteButton';
 import { toast } from 'react-toastify';
 
 export default function Account() {
@@ -51,33 +52,42 @@ export default function Account() {
     <Layout>
       <div className={classes.user}>
         <h2>Account Overview</h2>
-        <div className={classes.accountContainer}>
-          <Card>
-            <Card.Body>
-              <Card.Title>{user.userName}</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">{`${user.firstName} ${user.lastName}`}</Card.Subtitle>
-              <Card.Subtitle className="mb-2 text-muted">
-                {user.email}
-              </Card.Subtitle>
-              <Card.Text>{`Member since: ${date}`}</Card.Text>
-              <div className={classes.accountButtons}>
-                <Card.Link href="/all-posts">
-                  <button type="button" className="btn btn-info">
-                    See All Postings
-                  </button>
-                </Card.Link>
-                <Card.Link href="/">
-                  <button type="button" className="btn btn-info">
-                    Home Page
-                  </button>
-                </Card.Link>
-              </div>
-            </Card.Body>
-            <div className={classes.deleteBtn}>
-              <DeleteButton delete={handleUserDelete} />
+
+        <Card className={classes.card}>
+          <Card.Body>
+            <Card.Title>
+              <span className={classes.titles}>User Name</span> <br />
+              {user.userName}
+            </Card.Title>
+            <Card.Title className="mb-2 text-muted">
+              <span className={classes.titles}>Name</span> <br />
+              {`${user.firstName} ${user.lastName}`}
+            </Card.Title>
+            <Card.Title className="mb-2 text-muted">
+              <span className={classes.titles}>Email</span> <br />
+              {user.email}
+            </Card.Title>
+            <Card.Text>
+              <span className={classes.titles}>Member Since</span> <br />
+              {`${date}`}
+            </Card.Text>
+            <div className={classes.accountButtons}>
+              <Card.Link href="/all-posts">
+                <button type="button" className="btn btn-info acct-btn">
+                  See All Postings
+                </button>
+              </Card.Link>
+              <Card.Link href="/">
+                <button type="button" className="btn btn-info acct-btn">
+                  Home Page
+                </button>
+              </Card.Link>
             </div>
-          </Card>
-        </div>
+          </Card.Body>
+          <div className={classes.deleteBtn}>
+            <DeleteButton delete={handleUserDelete} />
+          </div>
+        </Card>
       </div>
     </Layout>
   );
