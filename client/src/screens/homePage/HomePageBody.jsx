@@ -1,9 +1,12 @@
-import React from 'react';
 import { Volunteer, Balloons, Beach, Desert } from '../../assets/index.js';
 import HomepageAccordian from './HomepageAccordian.jsx';
 import './HomePage.css';
 
 export default function HomePageBody() {
+  const userToken = localStorage.getItem('userToken');
+  const businessToken = localStorage.getItem('businessToken');
+  console.log(userToken);
+
   return (
     <div className="Homepage">
       {/* header/about section */}
@@ -19,7 +22,8 @@ export default function HomePageBody() {
               consectetur distinctio maiores rerum quidem cupiditate.
             </p>
             <div className="link-div">
-              <HomepageAccordian />
+              {/* Toggling the login/signup accordian if there is a token or not */}
+              {!userToken && !businessToken && <HomepageAccordian />}
             </div>
           </div>
         </div>
