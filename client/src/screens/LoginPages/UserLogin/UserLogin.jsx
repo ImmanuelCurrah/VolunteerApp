@@ -1,13 +1,13 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { loginUserHandler } from "../../../services/apiConfigUser/index.js";
-import UserLoginForm from "../../../components/Forms/loginForm/userLogin/UserLoginForm";
-import "../Login.css";
-import { Layout } from "../../../components/Layout/Layout.jsx";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { loginUserHandler } from '../../../services/apiConfigUser/index.js';
+import UserLoginForm from '../../../components/Forms/loginForm/userLogin/UserLoginForm';
+import '../Login.css';
+import { Layout } from '../../../components/Layout/Layout.jsx';
 
 const login_input = {
-  email: "",
-  password: "",
+  email: '',
+  password: '',
 };
 
 export default function UserLogin() {
@@ -27,10 +27,14 @@ export default function UserLogin() {
     try {
       e.preventDefault();
       const res = await loginUserHandler(userInput);
-      localStorage.setItem("userToken", res.data.data.token);
-      localStorage.setItem("userName", res.data.data.user.userName);
+      const userToken = res.data.data.token;
+      const userName = res.data.data.user.userName;
+
+      //storing login session into local storage
+      localStorage.setItem('userToken', userToken);
+      localStorage.setItem('userName', userName);
       setUserInput(login_input);
-      navigate("/");
+      navigate('/');
     } catch (error) {
       console.log(error);
     }

@@ -1,13 +1,13 @@
-import { useState, useEffect } from "react";
-import { Layout } from "../../../components/Layout/Layout";
-import { findCurrentUserHandler } from "../../../services/apiConfigUser";
-import { Card } from "react-bootstrap";
-import classes from "./UserAccount.module.css";
+import { useState, useEffect } from 'react';
+import { Layout } from '../../../components/Layout/Layout';
+import { findCurrentUserHandler } from '../../../services/apiConfigUser';
+import { Card } from 'react-bootstrap';
+import classes from './UserAccount.module.css';
 
 export default function Account() {
   const [user, setUser] = useState({});
-  const userName = localStorage.getItem("userName");
-  const token = localStorage.getItem("userToken");
+  const userName = localStorage.getItem('userName');
+  const token = localStorage.getItem('userToken');
   const date = new Date(user.createdAt).toDateString();
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export default function Account() {
     <Layout>
       <div className={classes.user}>
         <h2>Account Overview</h2>
-        <Card style={{ width: "18rem" }}>
+        <Card style={{ width: '18rem' }}>
           <Card.Body>
             <Card.Title>{user.userName}</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">{`${user.firstName} ${user.lastName}`}</Card.Subtitle>

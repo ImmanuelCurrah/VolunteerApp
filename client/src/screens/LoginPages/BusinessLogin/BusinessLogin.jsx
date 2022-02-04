@@ -1,13 +1,13 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { loginBusinessHandler } from "../../../services/apiConfigBusiness/index.js";
-import BusinessLoginForm from "../../../components/Forms/loginForm/businessLogin/BusinessLoginForm";
-import "../Login.css";
-import { Layout } from "../../../components/Layout/Layout.jsx";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { loginBusinessHandler } from '../../../services/apiConfigBusiness/index.js';
+import BusinessLoginForm from '../../../components/Forms/loginForm/businessLogin/BusinessLoginForm';
+import '../Login.css';
+import { Layout } from '../../../components/Layout/Layout.jsx';
 
 const business_input = {
-  email: "",
-  password: "",
+  email: '',
+  password: '',
 };
 
 export default function BusinessLogin() {
@@ -27,10 +27,14 @@ export default function BusinessLogin() {
     try {
       e.preventDefault();
       const res = await loginBusinessHandler(businessInput);
-      localStorage.setItem("businessToken", res.data.data.token);
-      localStorage.setItem("businessName", res.data.data.business.businessName);
+      const businessToken = res.data.data.token;
+      const businessName = res.data.data.business.businessName;
+
+      // storing login session into local storage
+      localStorage.setItem('businessToken', businessToken);
+      localStorage.setItem('businessName', businessName);
       setBusinessInput(business_input);
-      navigate("/");
+      navigate('/');
     } catch (error) {
       console.log(error);
     }

@@ -1,5 +1,5 @@
-import HomePage from './screens/homePage/HomePage';
 import { Routes, Route } from 'react-router-dom';
+import HomePage from './screens/homePage/HomePage';
 import CreatePost from './screens/createPostPage/CreatePost';
 import SignUpBusiness from './screens/signUpPage/SignUpBusiness';
 import SignUpUser from './screens/signUpPage/SignUpUser';
@@ -10,6 +10,7 @@ import AllPosts from './screens/AllPostsPage/AllPosts';
 import PageNotFound from './screens/404Page/PageNotFound';
 import BusinessAccount from './screens/accountPage/businessAccount/BusinessAccount';
 import UserAccount from './screens/accountPage/userAccount/UserAccount';
+import { ToastContainer } from 'react-toastify';
 import AboutUs from './screens/aboutUsPage/AboutUs';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -31,6 +32,18 @@ function App() {
         <Route path="/create-post-business" element={<CreatePost />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
+
+      <ToastContainer
+        position="top-left"
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 }
