@@ -12,6 +12,7 @@ import BusinessAccount from './screens/accountPage/businessAccount/BusinessAccou
 import UserAccount from './screens/accountPage/userAccount/UserAccount';
 import { ToastContainer } from 'react-toastify';
 import AboutUs from './screens/aboutUsPage/AboutUs';
+import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 

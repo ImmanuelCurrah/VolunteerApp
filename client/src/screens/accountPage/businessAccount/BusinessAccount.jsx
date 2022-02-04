@@ -43,7 +43,7 @@ export default function Account() {
   const handleBusinessDelete = async () => {
     await deleteBusinessHandler(businessId);
 
-    // toast.success('Deleting Record');
+    toast.success('Deleting Record');
 
     logoutHandler();
     navigate('/');

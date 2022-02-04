@@ -120,19 +120,3 @@ export const deleteBusinessHandler = (id) =>
       console.error(error.message);
       throw error;
     });
-
-//delete user account
-export const deleteUserHandler = (id) =>
-  axios({
-    method: 'delete',
-    url: `${baseURL}delete/${id}`,
-  })
-    .then((response) => {
-      return response;
-    })
-    .catch((error) => {
-      console.error(error.message);
-      throw error;
-    });
-
-// delete business post

@@ -21,8 +21,8 @@ export default function Account() {
 
   //removing tokens from local storage when account is deleted
   const logoutHandler = () => {
-    localStorage.removeItem('businessName');
-    localStorage.removeItem('businessToken');
+    localStorage.removeItem('userName');
+    localStorage.removeItem('userToken');
   };
 
   const date = new Date(user.createdAt).toDateString();
@@ -41,7 +41,7 @@ export default function Account() {
   const handleUserDelete = async () => {
     await deleteUserHandler(userId);
 
-    // toast.success('Deleting Record');
+    toast.success('Deleting Record');
 
     logoutHandler();
     navigate('/');
