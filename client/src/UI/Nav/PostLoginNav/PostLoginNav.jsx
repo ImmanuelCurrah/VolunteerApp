@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import * as ReactBootStrap from "react-bootstrap";
+import "../Nav.css";
 
 export default function PostLoginNav() {
   const [endPoint, setEndPoint] = useState("");
@@ -26,9 +27,10 @@ export default function PostLoginNav() {
       <ReactBootStrap.Navbar
         collapseOnSelect
         expand="xl"
-        bg="light"
-        variant="light"
+        // bg="dark"
+        variant="dark"
         fixed="top"
+        className="color-nav"
       >
         <ReactBootStrap.Container>
           <ReactBootStrap.Navbar.Brand href="/" className="Nav-header">
