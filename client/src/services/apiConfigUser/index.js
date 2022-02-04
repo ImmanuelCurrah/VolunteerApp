@@ -97,7 +97,7 @@ export const updateUserHandler = (data, userName) =>
 export const deleteUserHandler = (id) =>
   axios({
     method: 'delete',
-    url: `${baseURL}/${id}`,
+    url: `${baseURL}delete/${id}`,
   })
     .then((response) => {
       return response;
