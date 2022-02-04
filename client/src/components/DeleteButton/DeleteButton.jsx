@@ -8,13 +8,19 @@ export default function DeleteButton(props) {
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
 
+  const logoutHandler = () => {
+    localStorage.removeItem('userName');
+    localStorage.removeItem('userToken');
+    localStorage.removeItem('businessName');
+    localStorage.removeItem('businessToken');
+  };
+
   // delete business account request
   const handleBusinessDelete = async () => {
     await deleteBusinessHandler(props.businessId);
 
-    toast.success('Deleting Record');
-    //remove token from local storage
-
+    toast('Deleting Record');
+    logoutHandler();
     navigate('/');
   };
 
