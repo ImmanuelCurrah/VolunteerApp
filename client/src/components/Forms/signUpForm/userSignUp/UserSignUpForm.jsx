@@ -17,6 +17,8 @@ export default function UserSignUpForm() {
   const [valid, setValid] = useState(false);
   const navigation = useNavigate();
 
+  // function that handles the submission of the sign up form
+  // signUpUserHandler imported from api config/the backend
   const handleSubmit = async (e) => {
     e.preventDefault();
     await signUpUserHandler(newUser);
@@ -32,10 +34,12 @@ export default function UserSignUpForm() {
     }));
   };
 
+  // useEffect for checkIfValid function
   useEffect(() => {
     checkIfValid();
   }, [newUser.password, newUser.confirmPassword]);
 
+// this funciton checks to see if password is valid. i.e 8 or more characters, confirm password matches password
   const checkIfValid = () => {
     if (newUser.password === "" || newUser.confirmPassword === "") {
       setValidationMessage("");
@@ -51,6 +55,8 @@ export default function UserSignUpForm() {
     }
   };
 
+  // bootstrap used for the form that is returned
+  // validation message shows up at the top of the form
   return (
     <div className="signup-form">
       <Row>

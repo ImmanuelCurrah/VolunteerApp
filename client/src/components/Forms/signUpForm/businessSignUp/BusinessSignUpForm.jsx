@@ -16,6 +16,8 @@ export default function BusinessSignUpForm() {
   const [valid, setValid] = useState(false);
   const navigation = useNavigate();
 
+  // function that handles the submission of the sign up form
+  // signUpBusinessHandler imported from api config/the backend
   const handleSubmit = async (e) => {
     e.preventDefault();
     await signUpBusinessHandler(newBusiness);
@@ -35,6 +37,7 @@ export default function BusinessSignUpForm() {
     checkIfValid();
   }, [newBusiness.password, newBusiness.confirmPassword]);
 
+  // this funciton checks to see if password is valid. i.e 8 or more characters, confirm password matches password
   const checkIfValid = () => {
     if (newBusiness.password === "" || newBusiness.confirmPassword === "") {
       setValidationMessage("");
@@ -50,6 +53,8 @@ export default function BusinessSignUpForm() {
     }
   };
 
+  // bootstrap used for the form that is returned
+  // validation message shows up at the top of the form
   return (
     <div className="signup-form">
       <Row>

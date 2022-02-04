@@ -1,6 +1,6 @@
-import axios from "axios";
+import axios from 'axios';
 
-const baseURL = "https://volunteer-app-project.herokuapp.com/api/";
+const baseURL = 'https://volunteer-app-project.herokuapp.com/api/';
 
 export const fetchBusinessesHandler = (token) =>
   axios({
@@ -17,7 +17,7 @@ export const fetchBusinessesHandler = (token) =>
 
 export const signUpBusinessHandler = (data) =>
   axios({
-    method: "post",
+    method: 'post',
     url: `${baseURL}/signup/business`,
     data: data,
   })
@@ -31,7 +31,7 @@ export const signUpBusinessHandler = (data) =>
 
 export const loginBusinessHandler = (data) =>
   axios({
-    method: "post",
+    method: 'post',
     url: `${baseURL}/login/business`,
     data: data,
   })
@@ -82,7 +82,7 @@ export const findCurrentBusinessByIdHandler = (id) =>
 
 export const updateBusinessHandler = (data, businessName) =>
   axios({
-    method: "put",
+    method: 'put',
     url: `${baseURL}/updated/business/${businessName}`,
     data: data,
   })
@@ -96,8 +96,8 @@ export const updateBusinessHandler = (data, businessName) =>
 
 export const deleteBusinessHandler = (id) =>
   axios({
-    method: "delete",
-    url: `${baseURL}/business/${id}`,
+    method: 'delete',
+    url: `${baseURL}delete/business/${id}`,
   })
     .then((response) => {
       return response;
@@ -109,7 +109,7 @@ export const deleteBusinessHandler = (id) =>
 
 export const createBusinessPostHandler = (data, id) =>
   axios({
-    method: "post",
+    method: 'post',
     url: `${baseURL}/users/post/business/${id}`,
     data: data,
   })
@@ -120,3 +120,5 @@ export const createBusinessPostHandler = (data, id) =>
       console.error(error.message);
       throw error;
     });
+
+// delete business post
