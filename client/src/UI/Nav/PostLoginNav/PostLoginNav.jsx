@@ -5,6 +5,7 @@ export default function PostLoginNav() {
   const [endPoint, setEndPoint] = useState("");
 
   const userName = localStorage.getItem("userName");
+  const businessName = localStorage.getItem("businessName");
 
   useEffect(() => {
     if (userName) {
@@ -14,6 +15,12 @@ export default function PostLoginNav() {
     }
   }, []);
 
+  const logoutHandler = () => {
+    localStorage.removeItem("userName");
+    localStorage.removeItem("userToken");
+    localStorage.removeItem("businessName");
+    localStorage.removeItem("businessToken");
+  };
   return (
     <div className="post-login-nav">
       <ReactBootStrap.Navbar
@@ -48,6 +55,15 @@ export default function PostLoginNav() {
               <ReactBootStrap.Nav.Link href="/contact-us">
                 Contact Us
               </ReactBootStrap.Nav.Link>
+              {userName || businessName ? (
+                <ReactBootStrap.Nav.Link
+                  eventKey={2}
+                  href="/"
+                  onClick={logoutHandler}
+                >
+                  Logout
+                </ReactBootStrap.Nav.Link>
+              ) : null}
             </ReactBootStrap.Nav>
           </ReactBootStrap.Navbar.Collapse>
         </ReactBootStrap.Container>

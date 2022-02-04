@@ -30,7 +30,7 @@ export default function BusinessLogin() {
       localStorage.setItem("businessToken", res.data.data.token);
       localStorage.setItem("businessName", res.data.data.business.businessName);
       setBusinessInput(business_input);
-      navigate("/account/business");
+      navigate("/");
     } catch (error) {
       console.log(error);
     }

@@ -1,11 +1,11 @@
-import { Volunteer, Balloons, Beach, Desert } from '../../assets/index.js';
-import HomepageAccordian from './HomepageAccordian.jsx';
-import './HomePage.css';
+import { Volunteer, Balloons, Beach, Desert } from "../../assets/index.js";
+import HomepageAccordian from "./HomepageAccordian.jsx";
+import { Link } from "react-router-dom";
+import "./HomePage.css";
 
 export default function HomePageBody() {
-  const userToken = localStorage.getItem('userToken');
-  const businessToken = localStorage.getItem('businessToken');
-  console.log(userToken);
+  const userToken = localStorage.getItem("userToken");
+  const businessToken = localStorage.getItem("businessToken");
 
   return (
     <div className="Homepage">
@@ -24,6 +24,9 @@ export default function HomePageBody() {
             <div className="link-div">
               {/* Toggling the login/signup accordian if there is a token or not */}
               {!userToken && !businessToken && <HomepageAccordian />}
+              {userToken || businessToken ? (
+                <Link to="/all-posts">See Available Events!</Link>
+              ) : null}
             </div>
           </div>
         </div>
