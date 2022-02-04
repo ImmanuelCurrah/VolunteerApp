@@ -1,0 +1,13 @@
+.business-post-form {
+  margin-top: 12vh;
+  min-height: 100vh;
+}
+
+.business-post-form h2 {
+  text-align: center;
+}
+
+.form-label {
+  color: #fff;
+  font-weight: 600;
+}
