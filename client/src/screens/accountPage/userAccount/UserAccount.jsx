@@ -21,8 +21,8 @@ export default function Account() {
 
   //removing tokens from local storage when account is deleted
   const logoutHandler = () => {
-    localStorage.removeItem('businessName');
-    localStorage.removeItem('businessToken');
+    localStorage.removeItem('userName');
+    localStorage.removeItem('userToken');
   };
 
   const date = new Date(user.createdAt).toDateString();
