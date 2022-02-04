@@ -13,7 +13,6 @@ export default function AllPosts() {
 
     const fetchBizPosts = async () => {
       const res = await fetchBusinessesHandler(userToken || businessToken);
-      console.log(res.data.data);
       setBusinessPosts(res.data.data);
     };
     fetchBizPosts();
@@ -23,30 +22,28 @@ export default function AllPosts() {
     return "Loading...";
   }
 
-  const renderAllPosts = (post, index) => {
-    return (
-      <div className="card text-center shadow all-posts-card" key={index}>
-        <div className="overflow">
-          <div className="card-body text-dark">
-            <h3>{post.businessName}</h3>
-            <h5>{post.email}</h5>
+  // const renderAllPosts = (post, index) => {
+  //   return (
+  //     <div className="card text-center shadow all-posts-card" key={index}>
+  //       <div className="overflow">
+  //         <div className="card-body text-dark">
+  //           <h3>{post.businessName}</h3>
+  //           <h5>{post.email}</h5>
 
-            {post.posts.map((post, index) => {
-              console.log({ post });
-
-              return (
-                <div key={index}>
-                  <h5>{post.event}</h5>
-                  <h6>{post.numberNeeded}</h6>
-                  <p>{post.content}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-    );
-  };
+  //           {post.posts.map((post, index) => {
+  //             return (
+  //               <div key={index}>
+  //                 <h5>{post.event}</h5>
+  //                 <h6>{post.numberNeeded}</h6>
+  //                 <p>{post.content}</p>
+  //               </div>
+  //             );
+  //           })}
+  //         </div>
+  //       </div>
+  //     </div>
+  //   );
+  // };
 
   if (!businessPosts) {
     return "Loading...";
@@ -59,7 +56,26 @@ export default function AllPosts() {
           <h2>Upcoming Events</h2>
           <h6>that are looking for volunteers!</h6>
         </div>
-        <div className="all-posts-div">{businessPosts.map(renderAllPosts)}</div>
+        {/* <div className="all-posts-div">{businessPosts.map(renderAllPosts)}</div> */}
+        {businessPosts.map((posts) => {
+          return posts.posts.map((post) => {
+            return (
+              <div
+                className="card text-center shadow all-posts-card"
+                key={post._id}
+              >
+                <div className="overflow">
+                  <div className="card-body text-dark"></div>
+                  <h2>{`Hosted By: ${posts.businessName}`}</h2>
+                  <h3>{post.event}</h3>
+                  <h4>{`Volunteers Needed: ${post.numberNeeded}`}</h4>
+                  <h4>{post.content}</h4>
+                  <button>Sign Up!</button>
+                </div>
+              </div>
+            );
+          });
+        })}
       </div>
     </Layout>
   );
