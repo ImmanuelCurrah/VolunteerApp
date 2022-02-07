@@ -71,18 +71,16 @@ export default function Comments() {
   return (
     <Layout>
       <div className="login-page">
-        <div className="all-posts-container">
-          <div className="allposts-headers">
+        <div className="comment-posts-container">
             <h2>Comments</h2>
-            <div className="card text-center shadow all-posts-card">
+            <div className="card text-center shadow comment-posts-card">
               <div className="overflow">
                 <div className="card-body text-dark"></div>
-                <h2>{`Hosted By: ${businessInQuestion.businessName}`}</h2>
+                <h2 className="biz-name">{`Hosted By: ${businessInQuestion.businessName}`}</h2>
                 <h3>{postComments.event}</h3>
                 <h4>{`Volunteers Needed: ${postComments.numberNeeded}`}</h4>
                 <h4>{postComments.content}</h4>
               </div>
-            </div>
           </div>
         </div>
         <div className="all-posts-container">
