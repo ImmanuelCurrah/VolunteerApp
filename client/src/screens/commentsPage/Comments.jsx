@@ -7,6 +7,8 @@ import {
   findCurrentBusinessByIdHandler,
   postCommentHandler,
 } from "../../services/apiConfigBusiness";
+import { Tree } from "../../assets/index.js";
+import "./Comments.css";
 
 export default function Comments() {
   const [toggleGET, setToggleGET] = useState(false);
@@ -85,13 +87,20 @@ export default function Comments() {
         </div>
         <div className="all-posts-container">
           <h3>Comments:</h3>
-          {postComments.Comments.length === 0 ? (
-            <h4>No Comments yet</h4>
-          ) : (
-            postComments.Comments.map((comment) => {
-              return <h4 key={comment._id}>{comment.message}</h4>;
-            })
-          )}
+          <div className="comment-container">
+            {postComments.Comments.length === 0 ? (
+              <h4>No Comments yet</h4>
+            ) : (
+              postComments.Comments.map((comment) => {
+                return (
+                  <div className="comment" key={comment._id}>
+                    <img className="tree" src={Tree} alt="tree icon" />
+                    {comment.message}
+                  </div>
+                );
+              })
+              )}
+          </div>
           <Row>
             <Form onSubmit={submitHandler}>
               <Form.Control
@@ -103,7 +112,7 @@ export default function Comments() {
                 value={inputData.message}
                 onChange={setData}
               />
-              <button>Reply</button>
+              <button className="reply-btn">Reply</button>
             </Form>
           </Row>
         </div>
