@@ -1,25 +1,19 @@
-<<<<<<< HEAD
 import { useState, useEffect } from 'react';
 import { fetchBusinessesHandler } from '../../services/apiConfigBusiness/index.js';
 import { useNavigate } from 'react-router-dom';
 import { Layout } from '../../components/Layout/Layout.jsx';
 import { Button } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import './AllPosts.css';
-=======
-import { useState, useEffect } from "react";
-import { fetchBusinessesHandler } from "../../services/apiConfigBusiness/index.js";
-import { Layout } from "../../components/Layout/Layout.jsx";
-import "./AllPosts.css";
-import { useNavigate } from "react-router-dom";
->>>>>>> de7bdbea2a184816aab1881b303e2496b3cd3eea
 
 export default function AllPosts() {
   const [businessPosts, setBusinessPosts] = useState([]);
 
   useEffect(() => {
     // variable to grab token out of local storage to pass in as argument in the fetch post request
-    const userToken = localStorage.getItem("userToken");
-    const businessToken = localStorage.getItem("businessToken");
+    const userToken = localStorage.getItem('userToken');
+    const businessToken = localStorage.getItem('businessToken');
 
     const fetchBizPosts = async () => {
       const res = await fetchBusinessesHandler(userToken || businessToken);
@@ -31,7 +25,7 @@ export default function AllPosts() {
   const navigate = useNavigate();
 
   if (!businessPosts) {
-    return "Loading...";
+    return 'Loading...';
   }
 
   return (
@@ -51,7 +45,10 @@ export default function AllPosts() {
                 <div className="overflow">
                   <div className="card-body text-dark delete-post-btn">
                     <Button variant="danger">
-                      <i class="bi bi-trash">Post</i>
+                      <span>
+                        <FontAwesomeIcon icon={faTrash} size="sm" />
+                        <span> Delete</span>
+                      </span>
                     </Button>
                   </div>
                   <h2>{`Hosted By: ${posts.businessName}`}</h2>
