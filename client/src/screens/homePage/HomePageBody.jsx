@@ -55,12 +55,6 @@ export default function HomePageBody() {
       <section className="home-featured">
         <h2 className="featured-header">Featured Volunteer Events</h2>
         <div className="featured-posts">
-          {/* <h5>Placeholder Event Name</h5> */}
-          {/* <img src={Balloons} alt="placeholder" /> */}
-          {/* <h5>Placeholder Event Name</h5> */}
-          {/* <img src={Beach} alt="placeholder" /> */}
-          {/* <h5>Placeholder Event Name</h5> */}
-          {/* <img src={Desert} alt="placeholder" /> */}
           {featuredPost.map((posts) => {
             return posts.posts.slice(0, 1).map((post) => {
               return (
