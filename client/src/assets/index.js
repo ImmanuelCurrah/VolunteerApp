@@ -5,3 +5,4 @@ export const Desert = require("./images/desert.jpg");
 export const Astros = require("./images/astroscropped.jpg");
 export const Tree = require("./images/volunteerapp.png");
 export const HelpWanted = require("./images/volunteers-needed.jpg");
+//changed this
