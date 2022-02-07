@@ -1,28 +1,28 @@
-import { useState, useEffect } from 'react';
-import { Layout } from '../../../components/Layout/Layout';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { Layout } from "../../../components/Layout/Layout";
+import { useNavigate } from "react-router-dom";
 import {
   findCurrentBusinessByNameHandler,
   deleteBusinessHandler,
-} from '../../../services/apiConfigBusiness';
-import { Card } from 'react-bootstrap';
-import classes from './BusinessAccount.module.css';
-import DeleteButton from '../../../components/Buttons/DeleteButton/DeleteButton';
-import { toast } from 'react-toastify';
+} from "../../../services/apiConfigBusiness";
+import { Card } from "react-bootstrap";
+import classes from "./BusinessAccount.module.css";
+import DeleteButton from "../../../components/Buttons/DeleteButton/DeleteButton";
+import { toast } from "react-toastify";
 
 export default function Account() {
   const [business, setBusiness] = useState({});
-  const [businessId, setBusinessId] = useState('');
+  const [businessId, setBusinessId] = useState("");
 
   const navigate = useNavigate();
 
-  const businessName = localStorage.getItem('businessName');
-  const token = localStorage.getItem('businessToken');
+  const businessName = localStorage.getItem("businessName");
+  const token = localStorage.getItem("businessToken");
 
   //removing tokens from local storage when account is deleted
   const logoutHandler = () => {
-    localStorage.removeItem('businessName');
-    localStorage.removeItem('businessToken');
+    localStorage.removeItem("businessName");
+    localStorage.removeItem("businessToken");
   };
 
   const date = new Date(business.createdAt).toDateString();
@@ -43,16 +43,27 @@ export default function Account() {
   const handleBusinessDelete = async () => {
     await deleteBusinessHandler(businessId);
 
-    toast.success('Deleting Record');
+    toast.success("Deleting Record");
 
     logoutHandler();
-    navigate('/');
+    navigate("/");
   };
 
   return (
     <Layout>
       <div className={classes.business}>
         <h2>Account Overview</h2>
+        <div>
+          <Card.Link>
+            <div
+              onClick={() => {
+                navigate("/edit");
+              }}
+            >
+              Edit
+            </div>
+          </Card.Link>
+        </div>
         <Card className={classes.card}>
           <Card.Body>
             <Card.Title>
