@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { fetchBusinessesHandler } from '../../services/apiConfigBusiness/index.js';
-import { Layout } from '../../components/Layout/Layout.jsx';
-import './AllPosts.css';
 import { useNavigate } from 'react-router-dom';
+import { Layout } from '../../components/Layout/Layout.jsx';
+import { Button } from 'react-bootstrap';
+import './AllPosts.css';
 
 export default function AllPosts() {
   const [businessPosts, setBusinessPosts] = useState([]);
@@ -41,7 +42,11 @@ export default function AllPosts() {
                 key={post._id}
               >
                 <div className="overflow">
-                  <div className="card-body text-dark"></div>
+                  <div className="card-body text-dark delete-post-btn">
+                    <Button variant="danger">
+                      <i class="bi bi-trash">Post</i>
+                    </Button>
+                  </div>
                   <h2>{`Hosted By: ${posts.businessName}`}</h2>
                   <h3>{post.event}</h3>
                   <h4>{`Volunteers Needed: ${post.numberNeeded}`}</h4>

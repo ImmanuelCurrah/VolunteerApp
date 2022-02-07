@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const baseURL = 'https://volunteer-app-project.herokuapp.com/api/';
 
-//get businesses
+// get businesses
 export const fetchBusinessesHandler = (token) =>
   axios({
     url: `${baseURL}/businesses`,
@@ -16,7 +16,7 @@ export const fetchBusinessesHandler = (token) =>
       throw error;
     });
 
-//sign up businesses
+// sign up businesses
 export const signUpBusinessHandler = (data) =>
   axios({
     method: 'post',
@@ -31,7 +31,7 @@ export const signUpBusinessHandler = (data) =>
       throw error;
     });
 
-//login business
+// login business
 export const loginBusinessHandler = (data) =>
   axios({
     method: 'post',
@@ -59,7 +59,7 @@ export const logoutBusinessHandler = () =>
       throw error;
     });
 
-// fins business by name
+// find business by name
 export const findCurrentBusinessByNameHandler = (token, businessName) =>
   axios({
     url: `${baseURL}/users/currentBusiness/${businessName}`,
@@ -116,25 +116,11 @@ export const createBusinessPostHandler = (data, id) =>
       throw error;
     });
 
-//delete business account
+// delete business account
 export const deleteBusinessHandler = (id) =>
   axios({
     method: 'delete',
     url: `${baseURL}delete/business/${id}`,
-  })
-    .then((response) => {
-      return response;
-    })
-    .catch((error) => {
-      console.error(error.message);
-      throw error;
-    });
-
-//delete business post
-export const deleteBusinessPost = (id, postId) =>
-  axios({
-    method: 'delete',
-    url: `${baseURL}delete/business/${id}/${postId}`,
   })
     .then((response) => {
       return response;
@@ -166,6 +152,20 @@ export const postCommentHandler = (token, data, businessId, postId) =>
     url: `${baseURL}/post/${businessId}/${postId}`,
     headers: { Authorization: `${token}` },
     data: data,
+  })
+    .then((response) => {
+      return response;
+    })
+    .catch((error) => {
+      console.error(error.message);
+      throw error;
+    });
+
+// delete business post
+export const deleteBusinessPost = (id, postId) =>
+  axios({
+    method: 'delete',
+    url: `${baseURL}delete/business/${id}/${postId}`,
   })
     .then((response) => {
       return response;

@@ -40,6 +40,11 @@
   margin: 20px;
 }
 
+.delete-post-btn {
+  display: flex;
+  justify-content: flex-start;
+}
+
 button {
   padding: 8px;
   border-radius: 8px !important;
