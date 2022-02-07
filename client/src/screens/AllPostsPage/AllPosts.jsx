@@ -1,19 +1,20 @@
-import { useState, useEffect } from "react";
-import { fetchBusinessesHandler } from "../../services/apiConfigBusiness/index.js";
-import { Layout } from "../../components/Layout/Layout.jsx";
-import "./AllPosts.css";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import { fetchBusinessesHandler } from '../../services/apiConfigBusiness/index.js';
+import { Layout } from '../../components/Layout/Layout.jsx';
+import './AllPosts.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function AllPosts() {
   const [businessPosts, setBusinessPosts] = useState([]);
 
   useEffect(() => {
     // variable to grab token out of local storage to pass in as argument in the fetch post request
-    const userToken = localStorage.getItem("userToken");
-    const businessToken = localStorage.getItem("businessToken");
+    const userToken = localStorage.getItem('userToken');
+    const businessToken = localStorage.getItem('businessToken');
 
     const fetchBizPosts = async () => {
       const res = await fetchBusinessesHandler(userToken || businessToken);
+      console.log(res.data.data);
       setBusinessPosts(res.data.data);
     };
     fetchBizPosts();
@@ -22,7 +23,7 @@ export default function AllPosts() {
   const navigate = useNavigate();
 
   if (!businessPosts) {
-    return "Loading...";
+    return 'Loading...';
   }
 
   return (
@@ -32,7 +33,6 @@ export default function AllPosts() {
           <h2>Upcoming Events</h2>
           <h6>that are looking for volunteers!</h6>
         </div>
-        {/* <div className="all-posts-div">{businessPosts.map(renderAllPosts)}</div> */}
         {businessPosts.map((posts) => {
           return posts.posts.map((post) => {
             return (
@@ -51,7 +51,7 @@ export default function AllPosts() {
                       navigate(`/comments/${posts._id}/${post._id}`);
                     }}
                   >
-                    Go to Comments
+                    Sign Up!
                   </button>
                 </div>
               </div>

@@ -1,7 +1,8 @@
-import axios from "axios";
+import axios from 'axios';
 
-const baseURL = "https://volunteer-app-project.herokuapp.com/api/";
+const baseURL = 'https://volunteer-app-project.herokuapp.com/api/';
 
+//get businesses
 export const fetchBusinessesHandler = (token) =>
   axios({
     url: `${baseURL}/businesses`,
@@ -15,9 +16,10 @@ export const fetchBusinessesHandler = (token) =>
       throw error;
     });
 
+//sign up businesses
 export const signUpBusinessHandler = (data) =>
   axios({
-    method: "post",
+    method: 'post',
     url: `${baseURL}/signup/business`,
     data: data,
   })
@@ -29,9 +31,10 @@ export const signUpBusinessHandler = (data) =>
       throw error;
     });
 
+//login business
 export const loginBusinessHandler = (data) =>
   axios({
-    method: "post",
+    method: 'post',
     url: `${baseURL}/login/business`,
     data: data,
   })
@@ -43,6 +46,7 @@ export const loginBusinessHandler = (data) =>
       throw error;
     });
 
+//logout business
 export const logoutBusinessHandler = () =>
   axios({
     url: `${baseURL}/logout/business`,
@@ -55,6 +59,7 @@ export const logoutBusinessHandler = () =>
       throw error;
     });
 
+// fins business by name
 export const findCurrentBusinessByNameHandler = (token, businessName) =>
   axios({
     url: `${baseURL}/users/currentBusiness/${businessName}`,
@@ -68,6 +73,7 @@ export const findCurrentBusinessByNameHandler = (token, businessName) =>
       throw error;
     });
 
+// find business by id
 export const findCurrentBusinessByIdHandler = (id) =>
   axios({
     url: `${baseURL}/users/business/${id}`,
@@ -80,9 +86,10 @@ export const findCurrentBusinessByIdHandler = (id) =>
       throw error;
     });
 
+// update business
 export const updateBusinessHandler = (data, businessName) =>
   axios({
-    method: "put",
+    method: 'put',
     url: `${baseURL}/updated/business/${businessName}`,
     data: data,
   })
@@ -94,9 +101,10 @@ export const updateBusinessHandler = (data, businessName) =>
       throw error;
     });
 
+// create businesss post
 export const createBusinessPostHandler = (data, id) =>
   axios({
-    method: "post",
+    method: 'post',
     url: `${baseURL}/users/post/business/${id}`,
     data: data,
   })
@@ -108,9 +116,10 @@ export const createBusinessPostHandler = (data, id) =>
       throw error;
     });
 
+//delete business account
 export const deleteBusinessHandler = (id) =>
   axios({
-    method: "delete",
+    method: 'delete',
     url: `${baseURL}delete/business/${id}`,
   })
     .then((response) => {
@@ -121,9 +130,19 @@ export const deleteBusinessHandler = (id) =>
       throw error;
     });
 
+//delete business post
+export const deleteBusinessPost = () => {
+  try {
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+// get comment
 export const fetchComment = (token, businessId, postId) =>
   axios({
-    method: "get",
+    method: 'get',
     url: `${baseURL}/post/${businessId}/${postId}`,
     headers: { Authorization: `${token}` },
   })
@@ -135,9 +154,10 @@ export const fetchComment = (token, businessId, postId) =>
       throw error;
     });
 
+// post comment
 export const postCommentHandler = (token, data, businessId, postId) =>
   axios({
-    method: "post",
+    method: 'post',
     url: `${baseURL}/post/${businessId}/${postId}`,
     headers: { Authorization: `${token}` },
     data: data,
