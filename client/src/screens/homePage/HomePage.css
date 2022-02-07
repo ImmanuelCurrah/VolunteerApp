@@ -157,6 +157,7 @@
 .feat-posts-card {
   margin: 20px;
   width: 70%;
+  max-width: 1000px;
   -webkit-box-shadow: 0px 12px 18px -6px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 12px 18px -6px rgba(0, 0, 0, 0.8);
   border: 3px solid #fff;

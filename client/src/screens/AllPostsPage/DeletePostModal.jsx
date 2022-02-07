@@ -3,27 +3,27 @@ import { Modal, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
-export default function DeleteButton(props) {
+export default function DeletePostModal(props) {
   const [show, setShow] = useState(false);
 
   // showing or closing modal function
-  const handleModal = () => {
+  const handleDeletePostModal = () => {
     setShow((prevShow) => !prevShow);
   };
 
   return (
     <div>
-      <Button variant="danger" onClick={() => handleModal()}>
+      {' '}
+      <Button variant="danger" onClick={() => handleDeletePostModal()}>
         <span>
           <FontAwesomeIcon icon={faTrash} size="sm" />
           <span> Delete</span>
         </span>
       </Button>
-
       <Modal
         show={show}
         onHide={() => {
-          handleModal();
+          handleDeletePostModal();
         }}
       >
         <Modal.Header closeButton>
@@ -38,12 +38,15 @@ export default function DeleteButton(props) {
           <Button
             variant="default"
             onClick={() => {
-              handleModal();
+              handleDeletePostModal();
             }}
           >
             Cancel
           </Button>
-          <Button variant="danger" onClick={props.delete}>
+          <Button
+            variant="danger"
+            onClick={() => props.deletePost(props.id, props.postId)}
+          >
             Delete
           </Button>
         </Modal.Footer>

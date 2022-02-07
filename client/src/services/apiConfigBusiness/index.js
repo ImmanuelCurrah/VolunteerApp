@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const baseURL = 'https://volunteer-app-project.herokuapp.com/api/';
 
-//get businesses
+// get businesses
 export const fetchBusinessesHandler = (token) =>
   axios({
     url: `${baseURL}/businesses`,
@@ -16,7 +16,7 @@ export const fetchBusinessesHandler = (token) =>
       throw error;
     });
 
-//sign up businesses
+// sign up businesses
 export const signUpBusinessHandler = (data) =>
   axios({
     method: 'post',
@@ -31,7 +31,7 @@ export const signUpBusinessHandler = (data) =>
       throw error;
     });
 
-//login business
+// login business
 export const loginBusinessHandler = (data) =>
   axios({
     method: 'post',
@@ -59,7 +59,7 @@ export const logoutBusinessHandler = () =>
       throw error;
     });
 
-// fins business by name
+// find business by name
 export const findCurrentBusinessByNameHandler = (token, businessName) =>
   axios({
     url: `${baseURL}/users/currentBusiness/${businessName}`,
@@ -116,7 +116,7 @@ export const createBusinessPostHandler = (data, id) =>
       throw error;
     });
 
-//delete business account
+// delete business account
 export const deleteBusinessHandler = (id) =>
   axios({
     method: 'delete',
@@ -129,15 +129,6 @@ export const deleteBusinessHandler = (id) =>
       console.error(error.message);
       throw error;
     });
-
-//delete business post
-export const deleteBusinessPost = () => {
-  try {
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
-};
 
 // get comment
 export const fetchComment = (token, businessId, postId) =>
@@ -161,6 +152,20 @@ export const postCommentHandler = (token, data, businessId, postId) =>
     url: `${baseURL}/post/${businessId}/${postId}`,
     headers: { Authorization: `${token}` },
     data: data,
+  })
+    .then((response) => {
+      return response;
+    })
+    .catch((error) => {
+      console.error(error.message);
+      throw error;
+    });
+
+// delete business post
+export const deleteBusinessPost = (id, postId) =>
+  axios({
+    method: 'put',
+    url: `${baseURL}business/delete/post/${id}/${postId}`,
   })
     .then((response) => {
       return response;
