@@ -1,7 +1,7 @@
 import { Volunteer, Balloons, Beach, Desert } from "../../assets/index.js";
 import HomepageAccordian from "./HomepageAccordian.jsx";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { fetchBusinessesHandler } from "../../services/apiConfigBusiness/index.js";
 import "./HomePage.css";
 
@@ -21,6 +21,8 @@ export default function HomePageBody() {
     };
     fetchFeaturedPosts();
   }, []);
+
+  const navigate = useNavigate();
 
 
   return (
@@ -65,7 +67,13 @@ export default function HomePageBody() {
                     <h4>{posts.event}</h4>
                     <h5>{`Volunteers Needed: ${post.numberNeeded}`}</h5>
                     <h5>{post.content}</h5>
-                    <button>Sign Up!</button>
+                    <button
+                    onClick={() => {
+                      navigate(`/comments/${posts._id}/${post._id}`);
+                    }}
+                    >
+                      Go to Comments
+                    </button>
                   </div>
                 </div>
               )
