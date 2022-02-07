@@ -6,16 +6,11 @@ import {
 import DeletePostModal from './DeletePostModal.jsx';
 import { useNavigate } from 'react-router-dom';
 import { Layout } from '../../components/Layout/Layout.jsx';
-import { Button } from 'react-bootstrap';
 import { toast } from 'react-toastify';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import './AllPosts.css';
 
 export default function AllPosts() {
   const [businessPosts, setBusinessPosts] = useState([]);
-  const [id, setId] = useState('');
-  const [postId, setPostId] = useState('');
 
   const navigate = useNavigate();
 
@@ -27,7 +22,6 @@ export default function AllPosts() {
     // get business posts
     const fetchBizPosts = async () => {
       const res = await fetchBusinessesHandler(userToken || businessToken);
-      console.log(res.data.data);
 
       setBusinessPosts(res.data.data);
     };
@@ -36,14 +30,8 @@ export default function AllPosts() {
 
   // delete business post
   const deletePost = async (id, postId) => {
-    console.log(`${id} - ${postId} clicked`);
-    setId(id);
-    setPostId(postId);
-
     await deleteBusinessPost(id, postId);
 
-    setId('');
-    setPostId('');
     toast.success('Post Deleted');
     window.location.reload();
   };
