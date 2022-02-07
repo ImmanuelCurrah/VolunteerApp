@@ -3,10 +3,13 @@ import {
   fetchBusinessesHandler,
   deleteBusinessPost,
 } from '../../services/apiConfigBusiness/index.js';
+import DeletePostModal from './DeletePostModal.jsx';
 import { useNavigate } from 'react-router-dom';
 import { Layout } from '../../components/Layout/Layout.jsx';
-import DeleteButton from '../../components/Buttons/DeleteButton/DeleteButton.jsx';
+import { Button } from 'react-bootstrap';
 import { toast } from 'react-toastify';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import './AllPosts.css';
 
 export default function AllPosts() {
@@ -65,9 +68,11 @@ export default function AllPosts() {
               >
                 <div className="overflow">
                   <div className="card-body text-dark delete-post-btn">
-                    <button onClick={() => deletePost(posts._id, post._id)}>
-                      Delete
-                    </button>
+                    <DeletePostModal
+                      deletePost={deletePost}
+                      id={posts._id}
+                      postId={post._id}
+                    />
                   </div>
                   <h2>{`Hosted By: ${posts.businessName}`}</h2>
                   <h3>{post.event}</h3>
