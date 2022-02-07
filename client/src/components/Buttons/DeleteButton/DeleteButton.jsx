@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 export default function DeleteButton(props) {
   const [show, setShow] = useState(false);
@@ -12,7 +14,10 @@ export default function DeleteButton(props) {
   return (
     <div>
       <Button variant="danger" onClick={() => handleModal()}>
-        Delete Account
+        <span>
+          <FontAwesomeIcon icon={faTrash} size="sm" />
+          <span> Delete</span>
+        </span>
       </Button>
 
       <Modal
@@ -39,6 +44,7 @@ export default function DeleteButton(props) {
             Cancel
           </Button>
           <Button variant="danger" onClick={props.delete}>
+            <FontAwesomeIcon icon={faTrash} size="sm" />
             Delete
           </Button>
         </Modal.Footer>

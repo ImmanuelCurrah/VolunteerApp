@@ -2,9 +2,7 @@ import { useState, useEffect } from 'react';
 import { fetchBusinessesHandler } from '../../services/apiConfigBusiness/index.js';
 import { useNavigate } from 'react-router-dom';
 import { Layout } from '../../components/Layout/Layout.jsx';
-import { Button } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import DeleteButton from '../../components/Buttons/DeleteButton/DeleteButton.jsx';
 import './AllPosts.css';
 
 export default function AllPosts() {
@@ -44,12 +42,7 @@ export default function AllPosts() {
               >
                 <div className="overflow">
                   <div className="card-body text-dark delete-post-btn">
-                    <Button variant="danger">
-                      <span>
-                        <FontAwesomeIcon icon={faTrash} size="sm" />
-                        <span> Delete</span>
-                      </span>
-                    </Button>
+                    <DeleteButton />
                   </div>
                   <h2>{`Hosted By: ${posts.businessName}`}</h2>
                   <h3>{post.event}</h3>
