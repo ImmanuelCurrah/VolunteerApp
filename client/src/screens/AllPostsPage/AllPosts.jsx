@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   fetchBusinessesHandler,
   deleteBusinessPost,
 } from '../../services/apiConfigBusiness/index.js';
 import DeletePostModal from './DeletePostModal.jsx';
-import { useNavigate } from 'react-router-dom';
 import { Layout } from '../../components/Layout/Layout.jsx';
 import { toast } from 'react-toastify';
 import './AllPosts.css';
