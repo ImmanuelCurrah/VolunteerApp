@@ -29,12 +29,7 @@ export default function Comments() {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    const newPost = await postCommentHandler(
-      token,
-      inputData,
-      businessId,
-      postId
-    );
+    await postCommentHandler(token, inputData, businessId, postId);
     setToggleGET((prevToggle) => !prevToggle);
   };
 
@@ -52,6 +47,7 @@ export default function Comments() {
     };
     fetchingData();
     return () => {
+      // eslint-disable-next-line
       toggle = false;
     };
   }, [toggleGET]);

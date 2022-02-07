@@ -1,22 +1,22 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import {
   createBusinessPostHandler,
   findCurrentBusinessByNameHandler,
-} from '../../../../services/apiConfigBusiness';
-import { useNavigate } from 'react-router-dom';
-import { Row, Form } from 'react-bootstrap';
+} from "../../../../services/apiConfigBusiness";
+import { useNavigate } from "react-router-dom";
+import { Row, Form } from "react-bootstrap";
 
 export default function BusinessPostForm() {
   const [postData, setPostData] = useState({
-    event: '',
-    numberNeeded: '',
-    content: '',
+    event: "",
+    numberNeeded: "",
+    content: "",
   });
-  const [id, setId] = useState('');
+  const [id, setId] = useState("");
   const navigate = useNavigate();
 
-  const businessName = localStorage.getItem('businessName');
-  const token = localStorage.getItem('businessToken');
+  const businessName = localStorage.getItem("businessName");
+  const token = localStorage.getItem("businessToken");
 
   useEffect(() => {
     const fetchCurrentUser = async () => {
@@ -27,6 +27,7 @@ export default function BusinessPostForm() {
       setId(business.data.data._id);
     };
     fetchCurrentUser();
+    // eslint-disable-next-line
   }, []);
 
   const setPostDataHandler = (e) => {
@@ -40,8 +41,8 @@ export default function BusinessPostForm() {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const post = await createBusinessPostHandler(postData, id);
-      navigate('/all-posts');
+      await createBusinessPostHandler(postData, id);
+      navigate("/all-posts");
     } catch (error) {
       throw error;
     }

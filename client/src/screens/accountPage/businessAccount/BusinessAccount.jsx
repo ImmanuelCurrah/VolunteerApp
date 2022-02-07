@@ -37,6 +37,7 @@ export default function Account() {
       setBusiness(business.data.data);
     };
     fetchUser();
+    // eslint-disable-next-line
   }, []);
 
   // delete business account request

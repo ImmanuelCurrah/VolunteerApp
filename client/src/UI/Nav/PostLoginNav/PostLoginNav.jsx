@@ -14,6 +14,7 @@ export default function PostLoginNav() {
     } else {
       setEndPoint("business");
     }
+    // eslint-disable-next-line
   }, []);
 
   const logoutHandler = () => {

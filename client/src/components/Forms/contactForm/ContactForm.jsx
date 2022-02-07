@@ -60,7 +60,6 @@ export default function ContactForm() {
             className="form-control"
             id="message"
             rows={3}
-            id="message"
             value={message.message}
             onChange={messageHandler}
           />
