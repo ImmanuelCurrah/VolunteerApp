@@ -6,9 +6,9 @@ export default function SignUp() {
   return (
     <Layout>
       <div className="signup-page">
-        <h2>Sign Up!</h2>
+        <h2 className="signup-title">Sign Up!</h2>
         <UserSignUpForm />
       </div>
     </Layout>
-  )
+  );
 }
