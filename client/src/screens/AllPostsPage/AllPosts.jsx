@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { fetchBusinessesHandler } from "../../services/apiConfigBusiness/index.js";
 import { Layout } from "../../components/Layout/Layout.jsx";
 import "./AllPosts.css";
+import { useNavigate } from "react-router-dom";
 
 export default function AllPosts() {
   const [businessPosts, setBusinessPosts] = useState([]);
@@ -18,32 +19,7 @@ export default function AllPosts() {
     fetchBizPosts();
   }, []);
 
-  if (!businessPosts) {
-    return "Loading...";
-  }
-
-  // const renderAllPosts = (post, index) => {
-  //   return (
-  //     <div className="card text-center shadow all-posts-card" key={index}>
-  //       <div className="overflow">
-  //         <div className="card-body text-dark">
-  //           <h3>{post.businessName}</h3>
-  //           <h5>{post.email}</h5>
-
-  //           {post.posts.map((post, index) => {
-  //             return (
-  //               <div key={index}>
-  //                 <h5>{post.event}</h5>
-  //                 <h6>{post.numberNeeded}</h6>
-  //                 <p>{post.content}</p>
-  //               </div>
-  //             );
-  //           })}
-  //         </div>
-  //       </div>
-  //     </div>
-  //   );
-  // };
+  const navigate = useNavigate();
 
   if (!businessPosts) {
     return "Loading...";
@@ -70,7 +46,13 @@ export default function AllPosts() {
                   <h3>{post.event}</h3>
                   <h4>{`Volunteers Needed: ${post.numberNeeded}`}</h4>
                   <h4>{post.content}</h4>
-                  <button>Sign Up!</button>
+                  <button
+                    onClick={() => {
+                      navigate(`/comments/${posts._id}/${post._id}`);
+                    }}
+                  >
+                    Go to Comments
+                  </button>
                 </div>
               </div>
             );
