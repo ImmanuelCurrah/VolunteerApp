@@ -5,6 +5,17 @@
   align-items: center;
 }
 
+.comments-page {
+  min-height: 100vh !important;
+  background: rgb(236, 240, 226);
+  margin-bottom: -15px;
+}
+
+.comments-page h2 {
+  text-align: center;
+  margin-top: 11vh;
+}
+
 .comment-container {
   border: 2px solid #3d3b8b;
   border-radius: 8px;

@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { loginUserHandler } from '../../../services/apiConfigUser/index.js';
-import UserLoginForm from '../../../components/Forms/loginForm/userLogin/UserLoginForm';
-import '../Login.css';
-import { Layout } from '../../../components/Layout/Layout.jsx';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { loginUserHandler } from "../../../services/apiConfigUser/index.js";
+import UserLoginForm from "../../../components/Forms/loginForm/userLogin/UserLoginForm";
+import "../Login.css";
+import { Layout } from "../../../components/Layout/Layout.jsx";
 
 const login_input = {
-  email: '',
-  password: '',
+  email: "",
+  password: "",
 };
 
 export default function UserLogin() {
@@ -31,10 +31,10 @@ export default function UserLogin() {
       const userName = res.data.data.user.userName;
 
       //storing login session into local storage
-      localStorage.setItem('userToken', userToken);
-      localStorage.setItem('userName', userName);
+      localStorage.setItem("userToken", userToken);
+      localStorage.setItem("userName", userName);
       setUserInput(login_input);
-      navigate('/');
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
@@ -43,7 +43,7 @@ export default function UserLogin() {
   return (
     <Layout>
       <div className="login-page">
-        <h2>Volunteer Login</h2>
+        <h2 className="signup-title">Volunteer Login</h2>
         <UserLoginForm
           userInput={userInput}
           handleLoginChange={handleLoginChange}
