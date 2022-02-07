@@ -120,3 +120,11 @@ export const deleteBusinessHandler = (id) =>
       console.error(error.message);
       throw error;
     });
+
+export const deleteBusinessPost = () => {
+  try {
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
