@@ -131,13 +131,18 @@ export const deleteBusinessHandler = (id) =>
     });
 
 //delete business post
-export const deleteBusinessPost = () => {
-  try {
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
-};
+export const deleteBusinessPost = (id, postId) =>
+  axios({
+    method: 'delete',
+    url: `${baseURL}delete/business/${id}/${postId}`,
+  })
+    .then((response) => {
+      return response;
+    })
+    .catch((error) => {
+      console.error(error.message);
+      throw error;
+    });
 
 // get comment
 export const fetchComment = (token, businessId, postId) =>
