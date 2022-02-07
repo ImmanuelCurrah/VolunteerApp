@@ -1,0 +1,12 @@
+.edit_page {
+  min-height: 100vh !important;
+  background-color: rgb(236, 240, 226);
+}
+
+.title {
+  color: white;
+  background: #3d3b8b;
+  font-weight: 900;
+  text-align: center;
+  margin-top: 6vh;
+}

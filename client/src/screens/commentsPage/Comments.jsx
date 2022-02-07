@@ -1,25 +1,25 @@
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { Layout } from '../../components/Layout/Layout';
-import { Row, Form } from 'react-bootstrap';
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { Layout } from "../../components/Layout/Layout";
+import { Row, Form } from "react-bootstrap";
 import {
   fetchComment,
   findCurrentBusinessByIdHandler,
   postCommentHandler,
-} from '../../services/apiConfigBusiness';
-import { Tree } from '../../assets/index.js';
-import './Comments.css';
+} from "../../services/apiConfigBusiness";
+import { Tree } from "../../assets/index.js";
+import "./Comments.css";
 
 export default function Comments() {
   const [toggleGET, setToggleGET] = useState(false);
   const [postComments, setPostComments] = useState({});
   const [businessInQuestion, setBusinessInQuestion] = useState({});
-  const [inputData, setInputData] = useState({ message: '' });
+  const [inputData, setInputData] = useState({ message: "" });
   const { businessId, postId } = useParams();
   let toggle = true;
 
-  const user = localStorage.getItem('userToken');
-  const business = localStorage.getItem('businessToken');
+  const user = localStorage.getItem("userToken");
+  const business = localStorage.getItem("businessToken");
   let token;
   if (user) {
     token = user;
@@ -65,12 +65,12 @@ export default function Comments() {
   };
 
   if (!postComments.Comments) {
-    return 'Loading...';
+    return "Loading...";
   }
 
   return (
     <Layout>
-      <div className="login-page">
+      <div className="comments-page">
         <div className="comment-posts-container">
           <h2>Comments</h2>
           <div className="card text-center shadow comment-posts-card">

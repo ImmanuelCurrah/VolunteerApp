@@ -1,10 +1,25 @@
 .login-page {
   min-height: 100vh !important;
+  background: url(../../assets/images/login.png);
+  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
+}
+
+.page-contact {
+  min-height: 100vh !important;
+  background: url(../../assets/images/contact.png);
+  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
+}
+
+.page-contact h2 {
+  text-align: center;
+  margin-top: 7vh;
 }
 
 .login-page h2 {
   text-align: center;
-  margin-top: 11vh;
+  margin-top: 6vh;
 }
 
 .login-form {

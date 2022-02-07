@@ -1,10 +1,27 @@
 .signup-page {
   min-height: 100vh !important;
+  background: url(../../assets/images/people-hands.jpeg);
+}
+.signup-business-page {
+  min-height: 100vh !important;
+  background: url(../../assets/images/helping.png);
+  background-size: 100vh;
+}
+
+.signup-business-page h2 {
+  text-align: center;
+  margin-top: 6vh;
+}
+
+.signup-title {
+  color: white;
+  background: #3d3b8b;
+  font-weight: 900;
 }
 
 .signup-page h2 {
   text-align: center;
-  margin-top: 11vh;
+  margin-top: 6vh;
 }
 
 .signup-form {
