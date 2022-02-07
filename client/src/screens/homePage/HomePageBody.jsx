@@ -61,7 +61,7 @@ export default function HomePageBody() {
           {/* <img src={Beach} alt="placeholder" /> */}
           {/* <h5>Placeholder Event Name</h5> */}
           {/* <img src={Desert} alt="placeholder" /> */}
-          {featuredPost.map((posts) => {
+          {featuredPost.slice(0, 3).map((posts) => {
             return posts.posts.map((post) => {
               return (
                 <div className="feat" key={post._id}>
