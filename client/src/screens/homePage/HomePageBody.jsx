@@ -11,10 +11,9 @@ export default function HomePageBody() {
   const [featuredPost, setFeaturedPosts] = useState([]);
 
   useEffect(() => {
-
     const userToken = localStorage.getItem("userToken");
     const businessToken = localStorage.getItem("businessToken");
-      
+
     const fetchFeaturedPosts = async () => {
       const res = await fetchBusinessesHandler(userToken || businessToken);
       setFeaturedPosts(res.data.data);
@@ -23,7 +22,6 @@ export default function HomePageBody() {
   }, []);
 
   const navigate = useNavigate();
-
 
   return (
     <div className="Homepage">
@@ -57,28 +55,35 @@ export default function HomePageBody() {
       <section className="home-featured">
         <h2 className="featured-header">Featured Volunteer Events</h2>
         <div className="featured-posts">
-          {featuredPost.map((posts) => {
-            return posts.posts.slice(0, 1).map((post) => {
-              return (
-                <div className="card text-center shadow feat-posts-card" key={post._id}>
-                  <div className="overflow">
-                    <div className="card-body text-dark"></div>
-                    <h3>{`Hosted By: ${posts.businessName}`}</h3>
-                    <h4>{posts.event}</h4>
-                    <h5>{`Volunteers Needed: ${post.numberNeeded}`}</h5>
-                    <h5>{post.content}</h5>
-                    <button
-                    onClick={() => {
-                      navigate(`/comments/${posts._id}/${post._id}`);
-                    }}
-                    >
-                      Go to Comments
-                    </button>
+          {userToken || businessToken ? (
+            featuredPost.map((posts) => {
+              return posts.posts.slice(0, 1).map((post) => {
+                return (
+                  <div
+                    className="card text-center shadow feat-posts-card"
+                    key={post._id}
+                  >
+                    <div className="overflow">
+                      <div className="card-body text-dark"></div>
+                      <h3>{`Hosted By: ${posts.businessName}`}</h3>
+                      <h4>{posts.event}</h4>
+                      <h5>{`Volunteers Needed: ${post.numberNeeded}`}</h5>
+                      <h5>{post.content}</h5>
+                      <button
+                        onClick={() => {
+                          navigate(`/comments/${posts._id}/${post._id}`);
+                        }}
+                      >
+                        Go to Comments
+                      </button>
+                    </div>
                   </div>
-                </div>
-              )
+                );
+              });
             })
-          })}
+          ) : (
+            <h1>Log in to see Featured Events!</h1>
+          )}
         </div>
       </section>
     </div>
