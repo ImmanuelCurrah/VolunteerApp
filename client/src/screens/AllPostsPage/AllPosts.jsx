@@ -1,28 +1,55 @@
-import { useState, useEffect } from "react";
-import { fetchBusinessesHandler } from "../../services/apiConfigBusiness/index.js";
-import { Layout } from "../../components/Layout/Layout.jsx";
-import "./AllPosts.css";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import {
+  fetchBusinessesHandler,
+  deleteBusinessPost,
+} from '../../services/apiConfigBusiness/index.js';
+import DeletePostModal from './DeletePostModal.jsx';
+import { useNavigate } from 'react-router-dom';
+import { Layout } from '../../components/Layout/Layout.jsx';
+import { Button } from 'react-bootstrap';
+import { toast } from 'react-toastify';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import './AllPosts.css';
 
 export default function AllPosts() {
   const [businessPosts, setBusinessPosts] = useState([]);
+  const [id, setId] = useState('');
+  const [postId, setPostId] = useState('');
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     // variable to grab token out of local storage to pass in as argument in the fetch post request
-    const userToken = localStorage.getItem("userToken");
-    const businessToken = localStorage.getItem("businessToken");
+    const userToken = localStorage.getItem('userToken');
+    const businessToken = localStorage.getItem('businessToken');
 
+    // get business posts
     const fetchBizPosts = async () => {
       const res = await fetchBusinessesHandler(userToken || businessToken);
+      console.log(res.data.data);
+
       setBusinessPosts(res.data.data);
     };
     fetchBizPosts();
   }, []);
 
-  const navigate = useNavigate();
+  // delete business post
+  const deletePost = async (id, postId) => {
+    console.log(`${id} - ${postId} clicked`);
+    setId(id);
+    setPostId(postId);
+
+    await deleteBusinessPost(id, postId);
+
+    setId('');
+    setPostId('');
+    toast.success('Post Deleted');
+    window.location.reload();
+  };
 
   if (!businessPosts) {
-    return "Loading...";
+    return 'Loading...';
   }
 
   return (
@@ -40,7 +67,13 @@ export default function AllPosts() {
                 key={post._id}
               >
                 <div className="overflow">
-                  <div className="card-body text-dark"></div>
+                  <div className="card-body text-dark delete-post-btn">
+                    <DeletePostModal
+                      deletePost={deletePost}
+                      id={posts._id}
+                      postId={post._id}
+                    />
+                  </div>
                   <h2>{`Hosted By: ${posts.businessName}`}</h2>
                   <h3>{post.event}</h3>
                   <h4>{`Volunteers Needed: ${post.numberNeeded}`}</h4>

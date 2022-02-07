@@ -4,7 +4,7 @@ import { Layout } from "../../components/Layout/Layout";
 export default function Contact() {
   return (
     <Layout>
-      <div className="login-page-contact">
+      <div className="page-contact">
         <h2 className="signup-title">Contact Us!</h2>
         <ContactForm />
       </div>
