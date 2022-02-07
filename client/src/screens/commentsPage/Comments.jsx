@@ -1,23 +1,23 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { Layout } from "../../components/Layout/Layout";
-import { Row, Form } from "react-bootstrap";
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { Layout } from '../../components/Layout/Layout';
+import { Row, Form } from 'react-bootstrap';
 import {
   fetchComment,
   findCurrentBusinessByIdHandler,
   postCommentHandler,
-} from "../../services/apiConfigBusiness";
+} from '../../services/apiConfigBusiness';
 
 export default function Comments() {
   const [toggleGET, setToggleGET] = useState(false);
   const [postComments, setPostComments] = useState({});
   const [businessInQuestion, setBusinessInQuestion] = useState({});
-  const [inputData, setInputData] = useState({ message: "" });
+  const [inputData, setInputData] = useState({ message: '' });
   const { businessId, postId } = useParams();
   let toggle = true;
 
-  const user = localStorage.getItem("userToken");
-  const business = localStorage.getItem("businessToken");
+  const user = localStorage.getItem('userToken');
+  const business = localStorage.getItem('businessToken');
   let token;
   if (user) {
     token = user;
@@ -63,7 +63,7 @@ export default function Comments() {
   };
 
   if (!postComments.Comments) {
-    return "Loading...";
+    return 'Loading...';
   }
 
   return (

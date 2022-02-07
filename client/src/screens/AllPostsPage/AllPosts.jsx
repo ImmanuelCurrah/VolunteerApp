@@ -1,26 +1,49 @@
 import { useState, useEffect } from 'react';
-import { fetchBusinessesHandler } from '../../services/apiConfigBusiness/index.js';
+import {
+  fetchBusinessesHandler,
+  deleteBusinessPost,
+} from '../../services/apiConfigBusiness/index.js';
 import { useNavigate } from 'react-router-dom';
 import { Layout } from '../../components/Layout/Layout.jsx';
 import DeleteButton from '../../components/Buttons/DeleteButton/DeleteButton.jsx';
+import { toast } from 'react-toastify';
 import './AllPosts.css';
 
 export default function AllPosts() {
   const [businessPosts, setBusinessPosts] = useState([]);
+  const [id, setId] = useState('');
+  const [postId, setPostId] = useState('');
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     // variable to grab token out of local storage to pass in as argument in the fetch post request
     const userToken = localStorage.getItem('userToken');
     const businessToken = localStorage.getItem('businessToken');
 
+    // get business posts
     const fetchBizPosts = async () => {
       const res = await fetchBusinessesHandler(userToken || businessToken);
+      console.log(res.data.data);
+
       setBusinessPosts(res.data.data);
     };
     fetchBizPosts();
   }, []);
 
-  const navigate = useNavigate();
+  // delete business post
+  const deletePost = async (id, postId) => {
+    console.log(`${id} - ${postId} clicked`);
+    setId(id);
+    setPostId(postId);
+
+    await deleteBusinessPost(id, postId);
+
+    setId('');
+    setPostId('');
+    toast.success('Post Deleted');
+    window.location.reload();
+  };
 
   if (!businessPosts) {
     return 'Loading...';
@@ -42,7 +65,9 @@ export default function AllPosts() {
               >
                 <div className="overflow">
                   <div className="card-body text-dark delete-post-btn">
-                    <DeleteButton />
+                    <button onClick={() => deletePost(posts._id, post._id)}>
+                      Delete
+                    </button>
                   </div>
                   <h2>{`Hosted By: ${posts.businessName}`}</h2>
                   <h3>{post.event}</h3>

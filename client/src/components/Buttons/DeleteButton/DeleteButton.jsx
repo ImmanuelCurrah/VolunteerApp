@@ -44,7 +44,6 @@ export default function DeleteButton(props) {
             Cancel
           </Button>
           <Button variant="danger" onClick={props.delete}>
-            <FontAwesomeIcon icon={faTrash} size="sm" />
             Delete
           </Button>
         </Modal.Footer>

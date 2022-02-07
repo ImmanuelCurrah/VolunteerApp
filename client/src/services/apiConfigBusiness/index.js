@@ -164,8 +164,8 @@ export const postCommentHandler = (token, data, businessId, postId) =>
 // delete business post
 export const deleteBusinessPost = (id, postId) =>
   axios({
-    method: 'delete',
-    url: `${baseURL}delete/business/${id}/${postId}`,
+    method: 'put',
+    url: `${baseURL}business/delete/post/${id}/${postId}`,
   })
     .then((response) => {
       return response;
