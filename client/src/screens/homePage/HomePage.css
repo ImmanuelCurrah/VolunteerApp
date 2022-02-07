@@ -153,3 +153,16 @@
     margin: 5px;
   }
 }
+
+.feat-posts-card {
+  margin: 20px;
+  width: 70%;
+  -webkit-box-shadow: 0px 12px 18px -6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 12px 18px -6px rgba(0, 0, 0, 0.8);
+  border: 3px solid #fff;
+  color: #f9f9f9;
+  border-radius: 20px !important;
+  max-height: 100%;
+  overflow: auto;
+  background-color: #6883ba !important;
+}
