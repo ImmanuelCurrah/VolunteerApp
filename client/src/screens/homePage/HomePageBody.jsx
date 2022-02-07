@@ -1,18 +1,18 @@
-import { Volunteer, Balloons, Beach, Desert } from "../../assets/index.js";
-import HomepageAccordian from "./HomepageAccordian.jsx";
-import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { fetchBusinessesHandler } from "../../services/apiConfigBusiness/index.js";
-import "./HomePage.css";
+import { Volunteer, HelpWanted } from '../../assets/index.js';
+import HomepageAccordian from './HomepageAccordian.jsx';
+import { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { fetchBusinessesHandler } from '../../services/apiConfigBusiness/index.js';
+import './HomePage.css';
 
 export default function HomePageBody() {
-  const userToken = localStorage.getItem("userToken");
-  const businessToken = localStorage.getItem("businessToken");
+  const userToken = localStorage.getItem('userToken');
+  const businessToken = localStorage.getItem('businessToken');
   const [featuredPost, setFeaturedPosts] = useState([]);
 
   useEffect(() => {
-    const userToken = localStorage.getItem("userToken");
-    const businessToken = localStorage.getItem("businessToken");
+    const userToken = localStorage.getItem('userToken');
+    const businessToken = localStorage.getItem('businessToken');
 
     const fetchFeaturedPosts = async () => {
       const res = await fetchBusinessesHandler(userToken || businessToken);
@@ -82,7 +82,10 @@ export default function HomePageBody() {
               });
             })
           ) : (
-            <h1>Log in to see Featured Events!</h1>
+            <>
+              <h1>Sign up or Log in to see Featured Events!</h1>
+              <img src={HelpWanted} alt="help wanted sign" />
+            </>
           )}
         </div>
       </section>
