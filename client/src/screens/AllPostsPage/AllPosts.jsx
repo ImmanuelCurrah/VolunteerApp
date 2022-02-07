@@ -57,7 +57,7 @@ export default function AllPosts() {
           <h6>that are looking for volunteers!</h6>
         </div>
         {/* <div className="all-posts-div">{businessPosts.map(renderAllPosts)}</div> */}
-        {businessPosts.map((posts) => {
+        {businessPosts.slice(0, 3).map((posts) => {
           return posts.posts.map((post) => {
             return (
               <div
