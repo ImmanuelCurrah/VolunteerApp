@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { fetchBusinessesHandler } from '../../services/apiConfigBusiness/index.js';
 import { Layout } from '../../components/Layout/Layout.jsx';
 import './AllPosts.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function AllPosts() {
   const [businessPosts, setBusinessPosts] = useState([]);
@@ -19,7 +20,7 @@ export default function AllPosts() {
     fetchBizPosts();
   }, []);
 
-  // delete post
+  const navigate = useNavigate();
 
   if (!businessPosts) {
     return 'Loading...';
@@ -45,7 +46,13 @@ export default function AllPosts() {
                   <h3>{post.event}</h3>
                   <h4>{`Volunteers Needed: ${post.numberNeeded}`}</h4>
                   <h4>{post.content}</h4>
-                  <button>Sign Up!</button>
+                  <button
+                    onClick={() => {
+                      navigate(`/comments/${posts._id}/${post._id}`);
+                    }}
+                  >
+                    Sign Up!
+                  </button>
                 </div>
               </div>
             );
