@@ -1,4 +1,5 @@
 import * as ReactBootStrap from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "../Nav.css";
 
 export default function LoginNavBar() {
@@ -31,11 +32,11 @@ export default function LoginNavBar() {
                 title="Signup"
                 id="basic-nav-dropdown"
               >
-                <ReactBootStrap.NavDropdown.Item to="/sign-up-user">
-                  Volunteer Signup
+                <ReactBootStrap.NavDropdown.Item>
+                  <Link to="/sign-up-user">Volunteer Signup</Link>
                 </ReactBootStrap.NavDropdown.Item>
-                <ReactBootStrap.NavDropdown.Item to="/sign-up-business">
-                  Business Signup
+                <ReactBootStrap.NavDropdown.Item>
+                  <Link to="/sign-up-business">Business Signup</Link>
                 </ReactBootStrap.NavDropdown.Item>
               </ReactBootStrap.NavDropdown>
             </ReactBootStrap.Nav>
