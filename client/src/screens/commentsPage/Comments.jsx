@@ -9,10 +9,12 @@ import {
 } from "../../services/apiConfigBusiness";
 
 export default function Comments() {
+  const [toggleGET, setToggleGET] = useState(false);
   const [postComments, setPostComments] = useState({});
   const [businessInQuestion, setBusinessInQuestion] = useState({});
   const [inputData, setInputData] = useState({ message: "" });
   const { businessId, postId } = useParams();
+  let toggle = true;
 
   const user = localStorage.getItem("userToken");
   const business = localStorage.getItem("businessToken");
@@ -31,18 +33,26 @@ export default function Comments() {
       businessId,
       postId
     );
-    console.log(newPost);
+    setToggleGET((prevToggle) => !prevToggle);
   };
 
   useEffect(() => {
     const fetchingData = async () => {
-      const comment = await fetchComment(token, businessId, postId);
-      const currentBusiness = await findCurrentBusinessByIdHandler(businessId);
-      setBusinessInQuestion(currentBusiness.data.data.user);
-      setPostComments(comment.data.data);
+      if (toggle) {
+        const comment = await fetchComment(token, businessId, postId);
+        const currentBusiness = await findCurrentBusinessByIdHandler(
+          businessId
+        );
+        console.log(comment, currentBusiness);
+        setBusinessInQuestion(currentBusiness.data.data.user);
+        setPostComments(comment.data.data);
+      }
     };
     fetchingData();
-  }, [submitHandler]);
+    return () => {
+      toggle = false;
+    };
+  }, [toggleGET]);
 
   const setData = (e) => {
     const { id, value } = e.target;
@@ -61,7 +71,7 @@ export default function Comments() {
       <div className="login-page">
         <div className="all-posts-container">
           <div className="allposts-headers">
-            <h2>comments going here boiii</h2>
+            <h2>Comments</h2>
             <div className="card text-center shadow all-posts-card">
               <div className="overflow">
                 <div className="card-body text-dark"></div>
