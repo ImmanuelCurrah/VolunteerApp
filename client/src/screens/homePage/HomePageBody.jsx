@@ -61,16 +61,16 @@ export default function HomePageBody() {
           {/* <img src={Beach} alt="placeholder" /> */}
           {/* <h5>Placeholder Event Name</h5> */}
           {/* <img src={Desert} alt="placeholder" /> */}
-          {featuredPost.slice(0, 3).map((posts) => {
-            return posts.posts.map((post) => {
+          {featuredPost.map((posts) => {
+            return posts.posts.slice(0, 1).map((post) => {
               return (
-                <div className="feat" key={post._id}>
-                  <div className="over">
+                <div className="card text-center shadow feat-posts-card" key={post._id}>
+                  <div className="overflow">
                     <div className="card-body text-dark"></div>
-                    <h2>{`Hosted By: ${posts.businessName}`}</h2>
-                    <h3>{posts.event}</h3>
-                    <h4>{`Volunteers Needed: ${post.numberNeeded}`}</h4>
-                    <h4>{post.content}</h4>
+                    <h3>{`Hosted By: ${posts.businessName}`}</h3>
+                    <h4>{posts.event}</h4>
+                    <h5>{`Volunteers Needed: ${post.numberNeeded}`}</h5>
+                    <h5>{post.content}</h5>
                     <button>Sign Up!</button>
                   </div>
                 </div>
