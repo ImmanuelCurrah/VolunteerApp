@@ -16,6 +16,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import EditAccountPage from "./screens/EditAccountPage/EditAccountPage";
+import Comments from "./screens/commentsPage/Comments";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path="/create-post-business" element={<CreatePost />} />
         <Route path="*" element={<PageNotFound />} />
         <Route path="/edit" element={<EditAccountPage />} />
+        <Route path="/comments/:businessId/:postId" element={<Comments />} />
       </Routes>
       <ToastContainer />
     </div>
