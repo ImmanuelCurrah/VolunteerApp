@@ -128,7 +128,7 @@ export default function UserSignUpForm() {
             required
             type={hidePassword}
             id="confirmPassword"
-            placeholder="Confrim password"
+            placeholder="Confirm password"
             value={newUser.confirmPassword}
             onChange={handleInput}
           />

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Row, Form } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export default function UserLoginForm(props) {
   const [hidePassword, setHidePassword] = useState('password');
@@ -48,6 +49,11 @@ export default function UserLoginForm(props) {
           <button className="login-btn">Login</button>
         </Form>
       </Row>
+      <div className="no-account">
+        <h6>
+          Don't have an account? Sign up <Link to="/sign-up-user">here</Link>
+        </h6>
+      </div>
     </div>
   );
 }
