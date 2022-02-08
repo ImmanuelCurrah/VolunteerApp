@@ -1,4 +1,5 @@
-import * as ReactBootStrap from 'react-bootstrap';
+import * as ReactBootStrap from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "../Nav.css";
 
 export default function LoginNavBar() {
@@ -19,11 +20,15 @@ export default function LoginNavBar() {
           <ReactBootStrap.Navbar.Collapse id="basic-navbar-nav">
             <ReactBootStrap.Nav className="me-auto">
               <ReactBootStrap.NavDropdown title="Login" id="basic-nav-dropdown">
-                <ReactBootStrap.NavDropdown.Item href="/login-users">
-                  Volunteer Login
+                <ReactBootStrap.NavDropdown.Item>
+                  <Link className="link" to="/login-users">
+                    Volunteer Login
+                  </Link>
                 </ReactBootStrap.NavDropdown.Item>
-                <ReactBootStrap.NavDropdown.Item href="/login-business">
-                  Business Login
+                <ReactBootStrap.NavDropdown.Item>
+                  <Link className="link" to="/login-business">
+                    Business Login
+                  </Link>
                 </ReactBootStrap.NavDropdown.Item>
               </ReactBootStrap.NavDropdown>
               <ReactBootStrap.NavDropdown.Divider />
@@ -31,11 +36,15 @@ export default function LoginNavBar() {
                 title="Signup"
                 id="basic-nav-dropdown"
               >
-                <ReactBootStrap.NavDropdown.Item href="/sign-up-user">
-                  Volunteer Signup
+                <ReactBootStrap.NavDropdown.Item>
+                  <Link className="link" to="/sign-up-user">
+                    Volunteer Signup
+                  </Link>
                 </ReactBootStrap.NavDropdown.Item>
-                <ReactBootStrap.NavDropdown.Item href="/sign-up-business">
-                  Business Signup
+                <ReactBootStrap.NavDropdown.Item>
+                  <Link className="link" to="/sign-up-business">
+                    Business Signup
+                  </Link>
                 </ReactBootStrap.NavDropdown.Item>
               </ReactBootStrap.NavDropdown>
             </ReactBootStrap.Nav>

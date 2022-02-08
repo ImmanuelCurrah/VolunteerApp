@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Row, Form } from "react-bootstrap";
 import { updateBusinessHandler } from "../../../services/apiConfigBusiness";
 import { updateUserHandler } from "../../../services/apiConfigUser";

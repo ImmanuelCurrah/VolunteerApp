@@ -1,6 +1,6 @@
 .login-page {
   min-height: 100vh !important;
-  background: url(../../assets/images/login.png);
+  background: url("../../assets/images/login.png");
   background-size: 100vw 100vh;
   background-repeat: no-repeat;
 }

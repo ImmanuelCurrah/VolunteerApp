@@ -1,3 +1,13 @@
 .color-nav {
   background-color: #3d3b8b;
 }
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.link-two {
+  text-decoration: none;
+  color: white;
+}

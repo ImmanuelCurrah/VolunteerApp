@@ -31,11 +31,11 @@ export default function Account() {
   useEffect(() => {
     const fetchUser = async () => {
       const user = await findCurrentUserHandler(token, userName);
-
       setUserId(user.data.data._id);
       setUser(user.data.data);
     };
     fetchUser();
+    // eslint-disable-next-line
   }, []);
 
   // delete user account
