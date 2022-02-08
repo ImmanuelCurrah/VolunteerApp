@@ -33,7 +33,10 @@ export default function AllPosts() {
     await deleteBusinessPost(id, postId);
 
     toast.success('Post Deleted');
-    window.location.reload();
+
+    setTimeout(() => {
+      window.location.reload();
+    }, 3000);
   };
 
   if (!businessPosts) {

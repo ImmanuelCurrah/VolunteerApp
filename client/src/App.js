@@ -12,13 +12,11 @@ import BusinessAccount from './screens/accountPage/businessAccount/BusinessAccou
 import UserAccount from './screens/accountPage/userAccount/UserAccount';
 import { ToastContainer } from 'react-toastify';
 import AboutUs from './screens/aboutUsPage/AboutUs';
+import EditAccountPage from './screens/EditAccountPage/EditAccountPage';
+import Comments from './screens/commentsPage/Comments';
 import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import EditAccountPage from './screens/EditAccountPage/EditAccountPage';
-import Comments from './screens/commentsPage/Comments';
-
-//this is a change for the merge
 
 function App() {
   return (

@@ -56,6 +56,24 @@
   opacity: 0.7;
 }
 
+.active-account {
+  margin-top: 10px;
+  padding: 5px;
+  color: #fff;
+}
+
+.active-account h6 {
+  font-size: 16px;
+}
+
+.active-account a {
+  color: rgb(0, 0, 0);
+}
+
+.active-account a:hover {
+  color: rgb(239, 9, 9);
+}
+
 @media screen and (max-width: 750px) {
   .signup-form {
     max-width: 400px;

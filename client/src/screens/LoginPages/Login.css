@@ -1,6 +1,6 @@
 .login-page {
   min-height: 100vh !important;
-  background: url("../../assets/images/login.png");
+  background: url('../../assets/images/login.png');
   background-size: 100vw 100vh;
   background-repeat: no-repeat;
 }
@@ -50,4 +50,22 @@
 
 .login-btn:hover {
   opacity: 0.7;
+}
+
+.no-account {
+  margin-top: 10px;
+  padding: 5px;
+  color: #fff;
+}
+
+.no-account h6 {
+  font-size: 16px;
+}
+
+.no-account a {
+  color: rgb(0, 0, 0);
+}
+
+.no-account a:hover {
+  color: rgb(239, 9, 9);
 }
