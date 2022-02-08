@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { signUpBusinessHandler } from '../../../../services/apiConfigBusiness';
 import { Form, Row } from 'react-bootstrap';
 
@@ -130,6 +131,11 @@ export default function BusinessSignUpForm() {
           <button className="signup-btn">Sign in</button>
         </Form>
       </Row>
+      <div className="active-account">
+        <h6>
+          Already have an account? Login <Link to="/login-business">here</Link>
+        </h6>
+      </div>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { signUpUserHandler } from '../../../../services/apiConfigUser';
 import { Form, Row } from 'react-bootstrap';
 
@@ -142,6 +143,11 @@ export default function UserSignUpForm() {
           <button className="signup-btn">Sign in</button>
         </Form>
       </Row>
+      <div className="active-account">
+        <h6>
+          Already have an account? Login <Link to="/login-users">here</Link>
+        </h6>
+      </div>
     </div>
   );
 }
