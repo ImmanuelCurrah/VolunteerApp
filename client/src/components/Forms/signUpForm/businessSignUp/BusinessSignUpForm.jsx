@@ -1,29 +1,36 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { signUpBusinessHandler } from "../../../../services/apiConfigBusiness";
-import { Form, Row } from "react-bootstrap";
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { signUpBusinessHandler } from '../../../../services/apiConfigBusiness';
+import { Form, Row } from 'react-bootstrap';
 
 export default function BusinessSignUpForm() {
+  const [hidePassword, setHidePassword] = useState('password');
+  const [showPassword, setShowPassword] = useState('text');
   const [newBusiness, setNewBusiness] = useState({
-    userName: "",
-    businessName: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
+    userName: '',
+    businessName: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
   });
 
-  const [validationMessage, setValidationMessage] = useState("");
+  const [validationMessage, setValidationMessage] = useState('');
   const [valid, setValid] = useState(false);
   const navigation = useNavigate();
-  console.log(valid);
+
+  const toggleShowPassword = (e) => {
+    let x = hidePassword;
+    setHidePassword(showPassword);
+    setShowPassword(x);
+  };
 
   // function that handles the submission of the sign up form
   // signUpBusinessHandler imported from api config/the backend
   const handleSubmit = async (e) => {
     e.preventDefault();
     await signUpBusinessHandler(newBusiness);
-    console.log(newBusiness);
-    navigation("/login-business");
+
+    navigation('/login-business');
   };
 
   const handleInput = (e) => {
@@ -41,16 +48,16 @@ export default function BusinessSignUpForm() {
 
   // this funciton checks to see if password is valid. i.e 8 or more characters, confirm password matches password
   const checkIfValid = () => {
-    if (newBusiness.password === "" || newBusiness.confirmPassword === "") {
-      setValidationMessage("");
+    if (newBusiness.password === '' || newBusiness.confirmPassword === '') {
+      setValidationMessage('');
       setValid(false);
     } else if (newBusiness.password.length < 9) {
-      setValidationMessage("Short password! Must be at least 8 characters");
+      setValidationMessage('Short password! Must be at least 8 characters');
     } else if (newBusiness.password !== newBusiness.confirmPassword) {
-      setValidationMessage("Passwords must much!");
+      setValidationMessage('Passwords must much!');
       setValid(false);
     } else {
-      setValidationMessage("Password match!");
+      setValidationMessage('Password match!');
       setValid(true);
     }
   };
@@ -97,7 +104,7 @@ export default function BusinessSignUpForm() {
           <Form.Label>Password: </Form.Label>
           <Form.Control
             required
-            type="password"
+            type={hidePassword}
             id="password"
             placeholder="Create a password"
             value={newBusiness.password}
@@ -107,14 +114,20 @@ export default function BusinessSignUpForm() {
           <Form.Label>Confirm Password: </Form.Label>
           <Form.Control
             required
-            type="password"
+            type={hidePassword}
             id="confirmPassword"
-            placeholder="Confrim password"
+            placeholder="Confirm password"
             value={newBusiness.confirmPassword}
             onChange={handleInput}
           />
           <br />
-          <button className="signup-btn">Sign In</button>
+          <Form.Check
+            type="switch"
+            label="Show Password"
+            onClick={(e) => toggleShowPassword(e)}
+          />
+
+          <button className="signup-btn">Sign in</button>
         </Form>
       </Row>
     </div>

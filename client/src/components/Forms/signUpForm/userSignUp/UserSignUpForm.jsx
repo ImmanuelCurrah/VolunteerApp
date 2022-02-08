@@ -1,30 +1,37 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { signUpUserHandler } from "../../../../services/apiConfigUser";
-import { Form, Row } from "react-bootstrap";
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { signUpUserHandler } from '../../../../services/apiConfigUser';
+import { Form, Row } from 'react-bootstrap';
 
 export default function UserSignUpForm() {
+  const [hidePassword, setHidePassword] = useState('password');
+  const [showPassword, setShowPassword] = useState('text');
   const [newUser, setNewUser] = useState({
-    userName: "",
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
+    userName: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
   });
 
-  const [validationMessage, setValidationMessage] = useState("");
+  const [validationMessage, setValidationMessage] = useState('');
   const [valid, setValid] = useState(false);
   const navigation = useNavigate();
-  console.log(valid);
+
+  const toggleShowPassword = (e) => {
+    let x = hidePassword;
+    setHidePassword(showPassword);
+    setShowPassword(x);
+  };
 
   // function that handles the submission of the sign up form
   // signUpUserHandler imported from api config/the backend
   const handleSubmit = async (e) => {
     e.preventDefault();
     await signUpUserHandler(newUser);
-    console.log(newUser);
-    navigation("/login-users");
+
+    navigation('/login-users');
   };
 
   const handleInput = (e) => {
@@ -43,16 +50,16 @@ export default function UserSignUpForm() {
 
   // this funciton checks to see if password is valid. i.e 8 or more characters, confirm password matches password
   const checkIfValid = () => {
-    if (newUser.password === "" || newUser.confirmPassword === "") {
-      setValidationMessage("");
+    if (newUser.password === '' || newUser.confirmPassword === '') {
+      setValidationMessage('');
       setValid(false);
     } else if (newUser.password.length < 9) {
-      setValidationMessage("Short password! Must be at least 8 characters");
+      setValidationMessage('Short password! Must be at least 8 characters');
     } else if (newUser.password !== newUser.confirmPassword) {
-      setValidationMessage("Passwords must much!");
+      setValidationMessage('Passwords must much!');
       setValid(false);
     } else {
-      setValidationMessage("Password match!");
+      setValidationMessage('Password match!');
       setValid(true);
     }
   };
@@ -109,7 +116,7 @@ export default function UserSignUpForm() {
           <Form.Label>Password: </Form.Label>
           <Form.Control
             required
-            type="password"
+            type={hidePassword}
             id="password"
             placeholder="Create a password"
             value={newUser.password}
@@ -119,14 +126,20 @@ export default function UserSignUpForm() {
           <Form.Label>Confirm Password: </Form.Label>
           <Form.Control
             required
-            type="password"
+            type={hidePassword}
             id="confirmPassword"
             placeholder="Confrim password"
             value={newUser.confirmPassword}
             onChange={handleInput}
           />
           <br />
-          <button className="signup-btn">Sign In</button>
+          <Form.Check
+            type="switch"
+            label="Show Password"
+            onClick={(e) => toggleShowPassword(e)}
+          />
+
+          <button className="signup-btn">Sign in</button>
         </Form>
       </Row>
     </div>
