@@ -42,22 +42,29 @@ export default function PostLoginNav() {
             <ReactBootStrap.Nav className="me-auto"></ReactBootStrap.Nav>
             <ReactBootStrap.Nav>
               <ReactBootStrap.Nav.Link>
-                <Link to={`/account/${endPoint}`}>Account Page</Link>
+                <Link className="link-two" to={`/account/${endPoint}`}>
+                  Account Page
+                </Link>
               </ReactBootStrap.Nav.Link>
               {userName ? null : (
                 <ReactBootStrap.Nav.Link eventKey={2}>
-                  <Link to="/create-post-business"></Link>Post Business Ad
+                  <Link className="link-two" to="/create-post-business"></Link>
+                  Post Business Ad
                 </ReactBootStrap.Nav.Link>
               )}
               <ReactBootStrap.Nav.Link>
-                <Link to="/about-us">About Us</Link>
+                <Link className="link-two" to="/about-us">
+                  About Us
+                </Link>
               </ReactBootStrap.Nav.Link>
               <ReactBootStrap.Nav.Link href="">
-                <Link to="/contact-us">Contact Us</Link>
+                <Link className="link-two" to="/contact-us">
+                  Contact Us
+                </Link>
               </ReactBootStrap.Nav.Link>
               {userName || businessName ? (
                 <ReactBootStrap.Nav.Link eventKey={2}>
-                  <Link to="/" onClick={logoutHandler}>
+                  <Link className="link-two" to="/" onClick={logoutHandler}>
                     Logout
                   </Link>
                 </ReactBootStrap.Nav.Link>
