@@ -83,4 +83,14 @@
     background: #3d3b8b;
     border-radius: 50%;
   }
+
+  .footer-bottom p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding: 5px;
+    margin-top: 5px;
+    font-size: 12px;
+  }
 }
