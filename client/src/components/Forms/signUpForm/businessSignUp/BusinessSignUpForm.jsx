@@ -14,9 +14,9 @@ export default function BusinessSignUpForm() {
     password: '',
     confirmPassword: '',
   });
-
   const [validationMessage, setValidationMessage] = useState('');
   const [valid, setValid] = useState(false);
+
   const navigation = useNavigate();
 
   const toggleShowPassword = (e) => {
@@ -29,6 +29,7 @@ export default function BusinessSignUpForm() {
   // signUpBusinessHandler imported from api config/the backend
   const handleSubmit = async (e) => {
     e.preventDefault();
+    checkIfValid();
     await signUpBusinessHandler(newBusiness);
 
     navigation('/login-business');
@@ -43,6 +44,9 @@ export default function BusinessSignUpForm() {
   };
 
   useEffect(() => {
+    if (!newBusiness.email.includes('@')) {
+      setValidationMessage('Invalid Email - Must include an @ sign');
+    }
     checkIfValid();
     // eslint-disable-next-line
   }, [newBusiness.password, newBusiness.confirmPassword]);

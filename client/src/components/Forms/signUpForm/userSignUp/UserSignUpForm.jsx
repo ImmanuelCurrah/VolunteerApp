@@ -15,9 +15,9 @@ export default function UserSignUpForm() {
     password: '',
     confirmPassword: '',
   });
-
   const [validationMessage, setValidationMessage] = useState('');
   const [valid, setValid] = useState(false);
+
   const navigation = useNavigate();
 
   const toggleShowPassword = (e) => {
@@ -30,6 +30,8 @@ export default function UserSignUpForm() {
   // signUpUserHandler imported from api config/the backend
   const handleSubmit = async (e) => {
     e.preventDefault();
+    checkIfValid();
+
     await signUpUserHandler(newUser);
 
     navigation('/login-users');
@@ -45,6 +47,9 @@ export default function UserSignUpForm() {
 
   // useEffect for checkIfValid function
   useEffect(() => {
+    if (!newUser.email.includes('@')) {
+      setValidationMessage('Invalid Email - Must include an @ sign');
+    }
     checkIfValid();
     // eslint-disable-next-line
   }, [newUser.password, newUser.confirmPassword]);
@@ -52,7 +57,7 @@ export default function UserSignUpForm() {
   // this funciton checks to see if password is valid. i.e 8 or more characters, confirm password matches password
   const checkIfValid = () => {
     if (newUser.password === '' || newUser.confirmPassword === '') {
-      setValidationMessage('');
+      setValidationMessage('Please enter a password');
       setValid(false);
     } else if (newUser.password.length < 9) {
       setValidationMessage('Short password! Must be at least 8 characters');
