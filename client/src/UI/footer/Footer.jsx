@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { Github } from '../../assets/index.js';
 import './Footer.css';
 
@@ -10,21 +9,33 @@ export default function Footer() {
       </div>
       <div className="footer-links">
         <div className="footer-immanuel">
-          <Link to="https://github.com/ImmanuelCurrah">
+          <a
+            href="https://github.com/ImmanuelCurrah"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img src={Github} alt="github" />
-          </Link>
+          </a>
           <h5>Immanuel</h5>
         </div>
         <div className="footer-laura">
-          <Link to="https://github.com/laurabow">
+          <a
+            href="https://github.com/laurabow"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img src={Github} alt="github" />
-          </Link>
+          </a>
           <h5>Laura</h5>
         </div>
         <div className="footer-kevin">
-          <Link to="https://github.com/Kevin-c-miller">
+          <a
+            href="https://github.com/Kevin-c-miller"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img src={Github} alt="github" />
-          </Link>
+          </a>
           <h5>Kevin</h5>
         </div>
       </div>
