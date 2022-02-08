@@ -1,18 +1,18 @@
-import { Volunteer, HelpWanted } from '../../assets/index.js';
-import HomepageAccordian from './HomepageAccordian.jsx';
-import { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { fetchBusinessesHandler } from '../../services/apiConfigBusiness/index.js';
-import './HomePage.css';
+import { Volunteer, HelpWanted } from "../../assets/index.js";
+import HomepageAccordian from "./HomepageAccordian.jsx";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { fetchBusinessesHandler } from "../../services/apiConfigBusiness/index.js";
+import "./HomePage.css";
 
 export default function HomePageBody() {
-  const userToken = localStorage.getItem('userToken');
-  const businessToken = localStorage.getItem('businessToken');
+  const userToken = localStorage.getItem("userToken");
+  const businessToken = localStorage.getItem("businessToken");
   const [featuredPost, setFeaturedPosts] = useState([]);
 
   useEffect(() => {
-    const userToken = localStorage.getItem('userToken');
-    const businessToken = localStorage.getItem('businessToken');
+    const userToken = localStorage.getItem("userToken");
+    const businessToken = localStorage.getItem("businessToken");
 
     const fetchFeaturedPosts = async () => {
       const res = await fetchBusinessesHandler(userToken || businessToken);
@@ -31,11 +31,13 @@ export default function HomePageBody() {
           <h2 className="homepage-header">VolunteerApp</h2>
           <div className="homepage-para">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
-              saepe, aliquid molestias est similique obcaecati cum dolorem ea
-              recusandae possimus magnam rerum autem asperiores laborum at
-              placeat! Aliquam voluptas ut, ex, doloremque deserunt suscipit
-              consectetur distinctio maiores rerum quidem cupiditate.
+              VolunteerApp is a great space that has been developed to give
+              businesses and volunteers a safe space to connect. We know how
+              much a non-profit can give to a community. We also know how hard
+              it can be to connect with organizations in the area. This is a
+              platform that non-profits can post events they are holding and
+              then allows the volunteers to connect with them through this app.
+              Happy volunteering!
             </p>
             <div className="link-div">
               {/* Toggling the login/signup accordian if there is a token or not */}

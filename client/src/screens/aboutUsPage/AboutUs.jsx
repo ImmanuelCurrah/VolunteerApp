@@ -15,11 +15,12 @@ export default function AboutUs() {
               and find volunteers. In this app businesses can create a post to
               advertise their events and how many volunteers they need. Also,
               the VolunteerApp is a place where kind hearted people can look for
-              events and activities where their volunteering is needed. Lorem
-              ipsum dolor sit amet, consectetur adipisicing elit. Nostrum labore
-              perspiciatis earum sit, a tempora corrupti, in cumque ex,
-              accusamus provident! Voluptatibus necessitatibus maiores nulla
-              eligendi vitae vel qui nihil?
+              events and activities where their volunteering is needed. We are
+              committed to helping business and volunteers have a safe and
+              efficient platform to connect on. We know how much non-profits
+              need help and we also know how willing some people are. It can be
+              difficult to find an event on a day that works for you. With our
+              app this is no problem. We hope you find this helpful!
             </p>
           </div>
           <div className="astro-pic">
