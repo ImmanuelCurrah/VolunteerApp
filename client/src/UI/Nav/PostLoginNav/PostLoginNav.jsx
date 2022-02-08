@@ -48,8 +48,9 @@ export default function PostLoginNav() {
               </ReactBootStrap.Nav.Link>
               {userName ? null : (
                 <ReactBootStrap.Nav.Link eventKey={2}>
-                  <Link className="link-two" to="/create-post-business"></Link>
-                  Post Business Ad
+                  <Link className="link-two" to="/create-post-business">
+                    Post Business Ad
+                  </Link>
                 </ReactBootStrap.Nav.Link>
               )}
               <ReactBootStrap.Nav.Link>
