@@ -20,11 +20,11 @@ export default function LoginNavBar() {
           <ReactBootStrap.Navbar.Collapse id="basic-navbar-nav">
             <ReactBootStrap.Nav className="me-auto">
               <ReactBootStrap.NavDropdown title="Login" id="basic-nav-dropdown">
-                <ReactBootStrap.NavDropdown.Item href="/login-users">
-                  Volunteer Login
+                <ReactBootStrap.NavDropdown.Item>
+                  <Link to="/login-users">Volunteer Login</Link>
                 </ReactBootStrap.NavDropdown.Item>
-                <ReactBootStrap.NavDropdown.Item href="/login-business">
-                  Business Login
+                <ReactBootStrap.NavDropdown.Item>
+                  <Link to="/login-business">Business Login</Link>
                 </ReactBootStrap.NavDropdown.Item>
               </ReactBootStrap.NavDropdown>
               <ReactBootStrap.NavDropdown.Divider />
