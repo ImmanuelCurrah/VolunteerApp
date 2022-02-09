@@ -1,23 +1,23 @@
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import { signUpUserHandler } from '../../../../services/apiConfigUser';
-import { Form, Row } from 'react-bootstrap';
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { signUpUserHandler } from "../../../../services/apiConfigUser";
+import { Form, Row } from "react-bootstrap";
 
 export default function UserSignUpForm() {
-  const [hidePassword, setHidePassword] = useState('password');
-  const [showPassword, setShowPassword] = useState('text');
+  const [hidePassword, setHidePassword] = useState("password");
+  const [showPassword, setShowPassword] = useState("text");
   const [newUser, setNewUser] = useState({
-    userName: '',
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
+    userName: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
   });
-  const [validationMessage, setValidationMessage] = useState('');
+  const [validationMessage, setValidationMessage] = useState("");
   const [valid, setValid] = useState(false);
-
+  console.log(valid);
   const navigation = useNavigate();
 
   const toggleShowPassword = (e) => {
@@ -34,7 +34,7 @@ export default function UserSignUpForm() {
 
     await signUpUserHandler(newUser);
 
-    navigation('/login-users');
+    navigation("/login-users");
   };
 
   const handleInput = (e) => {
@@ -47,8 +47,8 @@ export default function UserSignUpForm() {
 
   // useEffect for checkIfValid function
   useEffect(() => {
-    if (!newUser.email.includes('@')) {
-      setValidationMessage('Invalid Email - Must include an @ sign');
+    if (!newUser.email.includes("@")) {
+      setValidationMessage("Invalid Email - Must include an @ sign");
     }
     checkIfValid();
     // eslint-disable-next-line
@@ -56,16 +56,16 @@ export default function UserSignUpForm() {
 
   // this funciton checks to see if password is valid. i.e 8 or more characters, confirm password matches password
   const checkIfValid = () => {
-    if (newUser.password === '' || newUser.confirmPassword === '') {
-      setValidationMessage('Please enter a password');
+    if (newUser.password === "" || newUser.confirmPassword === "") {
+      setValidationMessage("Please enter a password");
       setValid(false);
     } else if (newUser.password.length < 9) {
-      setValidationMessage('Short password! Must be at least 8 characters');
+      setValidationMessage("Short password! Must be at least 8 characters");
     } else if (newUser.password !== newUser.confirmPassword) {
-      setValidationMessage('Passwords must much!');
+      setValidationMessage("Passwords must much!");
       setValid(false);
     } else {
-      setValidationMessage('Password match!');
+      setValidationMessage("Password match!");
       setValid(true);
     }
   };

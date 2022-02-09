@@ -1,21 +1,22 @@
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import { signUpBusinessHandler } from '../../../../services/apiConfigBusiness';
-import { Form, Row } from 'react-bootstrap';
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { signUpBusinessHandler } from "../../../../services/apiConfigBusiness";
+import { Form, Row } from "react-bootstrap";
 
 export default function BusinessSignUpForm() {
-  const [hidePassword, setHidePassword] = useState('password');
-  const [showPassword, setShowPassword] = useState('text');
+  const [hidePassword, setHidePassword] = useState("password");
+  const [showPassword, setShowPassword] = useState("text");
   const [newBusiness, setNewBusiness] = useState({
-    userName: '',
-    businessName: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
+    userName: "",
+    businessName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
   });
-  const [validationMessage, setValidationMessage] = useState('');
+  const [validationMessage, setValidationMessage] = useState("");
   const [valid, setValid] = useState(false);
+  console.log(valid);
 
   const navigation = useNavigate();
 
@@ -32,7 +33,7 @@ export default function BusinessSignUpForm() {
     checkIfValid();
     await signUpBusinessHandler(newBusiness);
 
-    navigation('/login-business');
+    navigation("/login-business");
   };
 
   const handleInput = (e) => {
@@ -44,8 +45,8 @@ export default function BusinessSignUpForm() {
   };
 
   useEffect(() => {
-    if (!newBusiness.email.includes('@')) {
-      setValidationMessage('Invalid Email - Must include an @ sign');
+    if (!newBusiness.email.includes("@")) {
+      setValidationMessage("Invalid Email - Must include an @ sign");
     }
     checkIfValid();
     // eslint-disable-next-line
@@ -53,16 +54,16 @@ export default function BusinessSignUpForm() {
 
   // this funciton checks to see if password is valid. i.e 8 or more characters, confirm password matches password
   const checkIfValid = () => {
-    if (newBusiness.password === '' || newBusiness.confirmPassword === '') {
-      setValidationMessage('');
+    if (newBusiness.password === "" || newBusiness.confirmPassword === "") {
+      setValidationMessage("");
       setValid(false);
     } else if (newBusiness.password.length < 9) {
-      setValidationMessage('Short password! Must be at least 8 characters');
+      setValidationMessage("Short password! Must be at least 8 characters");
     } else if (newBusiness.password !== newBusiness.confirmPassword) {
-      setValidationMessage('Passwords must much!');
+      setValidationMessage("Passwords must much!");
       setValid(false);
     } else {
-      setValidationMessage('Password match!');
+      setValidationMessage("Password match!");
       setValid(true);
     }
   };
