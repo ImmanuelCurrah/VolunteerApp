@@ -5,6 +5,6 @@ export const Desert = require("./images/desert.jpg");
 export const Astros = require("./images/astroscropped.jpg");
 export const Tree = require("./images/volunteerapp.png");
 export const HelpWanted = require("./images/volunteers-needed.jpg");
-export const Github = require("./images/Github.png");
+export const Github = require("./images/GitHub.png");
 export const Linkedin = require("./images/linkedin.png");
 //merging
