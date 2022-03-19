@@ -154,6 +154,17 @@ export default function UserSignUpForm() {
           Already have an account? Login <Link to="/login-users">here</Link>
         </h6>
       </div>
+
+      <div className="guestlogin">
+        <span>
+          <strong>Email:</strong>
+          <em>guestuseraccount@test.com</em>
+        </span>
+        <span>
+          <strong>Password:</strong>
+          <em>password</em>
+        </span>
+      </div>
     </div>
   );
 }

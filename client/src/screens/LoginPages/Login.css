@@ -69,3 +69,10 @@
 .no-account a:hover {
   color: rgb(239, 9, 9);
 }
+
+.guestlogin {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
