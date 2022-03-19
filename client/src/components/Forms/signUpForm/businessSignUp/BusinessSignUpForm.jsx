@@ -67,6 +67,8 @@ export default function BusinessSignUpForm() {
     }
   };
 
+  console.log(valid);
+
   // bootstrap used for the form that is returned
   // validation message shows up at the top of the form
   return (

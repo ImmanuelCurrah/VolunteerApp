@@ -69,6 +69,7 @@ export default function UserSignUpForm() {
       setValid(true);
     }
   };
+  console.log(valid);
 
   // bootstrap used for the form that is returned
   // validation message shows up at the top of the form
