@@ -69,6 +69,7 @@ export default function UserSignUpForm() {
       setValid(true);
     }
   };
+  console.log(valid);
 
   // bootstrap used for the form that is returned
   // validation message shows up at the top of the form
@@ -152,6 +153,17 @@ export default function UserSignUpForm() {
         <h6>
           Already have an account? Login <Link to="/login-users">here</Link>
         </h6>
+      </div>
+
+      <div className="guestlogin">
+        <span>
+          <strong>Email:</strong>
+          <em>guestuseraccount@test.com</em>
+        </span>
+        <span>
+          <strong>Password:</strong>
+          <em>password</em>
+        </span>
       </div>
     </div>
   );

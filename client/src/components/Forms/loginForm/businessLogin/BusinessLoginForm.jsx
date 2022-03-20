@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 export default function BusinessLoginForm(props) {
   const [hidePassword, setHidePassword] = useState('password');
   const [showPassword, setShowPassword] = useState('text');
+  const [showGuest, setShowGuest] = useState(false);
 
   const { email, password } = props.businessInput;
 
@@ -12,6 +13,11 @@ export default function BusinessLoginForm(props) {
     let x = hidePassword;
     setHidePassword(showPassword);
     setShowPassword(x);
+  };
+
+  // show guest login div
+  const showguestLogin = () => {
+    setShowGuest((prevShowGuest) => !prevShowGuest);
   };
 
   return (
@@ -55,6 +61,21 @@ export default function BusinessLoginForm(props) {
           <Link to="/sign-up-business">here</Link>
         </h6>
       </div>
+
+      <button onClick={showguestLogin}>Login as Guest</button>
+
+      {showGuest && (
+        <div className="guestlogin">
+          <span>
+            <strong>Email: </strong>
+            <em>guest@user.com</em>
+          </span>
+          <span>
+            <strong>Password: </strong>
+            <em>password</em>
+          </span>
+        </div>
+      )}
     </div>
   );
 }

@@ -38,6 +38,7 @@
   display: flex;
   justify-content: center !important;
   align-items: center !important;
+  flex-direction: column;
 }
 
 .accordion {
@@ -68,6 +69,14 @@
   width: 400px;
   border: 5px solid #000;
   border-radius: 50%;
+}
+
+.guest-btn {
+  margin: 20px;
+}
+
+.continueAsGuest > a {
+  margin: 10px;
 }
 
 /* Homepage featured */

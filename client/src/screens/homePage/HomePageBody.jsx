@@ -1,18 +1,19 @@
-import { Volunteer, HelpWanted } from "../../assets/index.js";
-import HomepageAccordian from "./HomepageAccordian.jsx";
-import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { fetchBusinessesHandler } from "../../services/apiConfigBusiness/index.js";
-import "./HomePage.css";
+import { Volunteer, HelpWanted } from '../../assets/index.js';
+import HomepageAccordian from './HomepageAccordian.jsx';
+import { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { fetchBusinessesHandler } from '../../services/apiConfigBusiness/index.js';
+import './HomePage.css';
 
 export default function HomePageBody() {
-  const userToken = localStorage.getItem("userToken");
-  const businessToken = localStorage.getItem("businessToken");
+  const userToken = localStorage.getItem('userToken');
+  const businessToken = localStorage.getItem('businessToken');
   const [featuredPost, setFeaturedPosts] = useState([]);
+  const [showGuestLinks, setShowGuestLinks] = useState(false);
 
   useEffect(() => {
-    const userToken = localStorage.getItem("userToken");
-    const businessToken = localStorage.getItem("businessToken");
+    const userToken = localStorage.getItem('userToken');
+    const businessToken = localStorage.getItem('businessToken');
 
     const fetchFeaturedPosts = async () => {
       const res = await fetchBusinessesHandler(userToken || businessToken);
@@ -22,6 +23,11 @@ export default function HomePageBody() {
   }, []);
 
   const navigate = useNavigate();
+
+  // show guest login links
+  const guestLinks = () => {
+    setShowGuestLinks((prevShowGuestLinks) => !prevShowGuestLinks);
+  };
 
   return (
     <div className="Homepage">
@@ -41,10 +47,25 @@ export default function HomePageBody() {
             </p>
             <div className="link-div">
               {/* Toggling the login/signup accordian if there is a token or not */}
-              {!userToken && !businessToken && <HomepageAccordian />}
+              {!userToken && !businessToken && (
+                <>
+                  <HomepageAccordian />
+                  <button className="guest-btn" onClick={guestLinks}>
+                    Continue as Guest
+                  </button>
+                </>
+              )}
               {userToken || businessToken ? (
                 <Link to="/all-posts">See Available Events!</Link>
               ) : null}
+
+              {showGuestLinks && (
+                <div className="continueAsGuest">
+                  <Link to="/login-business"> Business Guest</Link>
+                  <br />
+                  <Link to="/login-users"> Volunteer Guest </Link>
+                </div>
+              )}
             </div>
           </div>
         </div>
