@@ -115,7 +115,7 @@ export const deleteUserHandler = (id) =>
       throw error;
     });
 
-// create user post /
+// create user post
 export const createUserPostHandler = (data, id) =>
   axios({
     method: "post",
